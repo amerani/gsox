@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "build": "lerna run build",
+    "clean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
     "test": "jest",
     "lint": "tslint **/src/**/*.ts **/__tests__/**/*.ts",
-    "publish": "yarn run build && lerna publish"
+    "publish": "yarn run build && lerna publish",
+    "serve": "ts-node examples/server.ts"
   },
   "author": "Alek Merani",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.1.6",
+    "express": "^4.16.3",
     "jest": "^23.4.1",
     "lerna": "^2.11.0",
     "ts-jest": "^23.0.0",

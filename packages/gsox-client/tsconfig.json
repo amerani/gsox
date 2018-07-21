@@ -3,7 +3,7 @@
           "module": "commonjs",
           "target": "es6",
           "moduleResolution": "node",
-          "outDir": "lib",
+          "outDir": "./lib",
           "lib": [
             "es2017",
             "esnext.asynciterable"
@@ -12,8 +12,5 @@
       },
       "include": [
           "src/**/*"
-      ],
-      "tslint.run": "onSave",
-      "tslint.enable": true,
-      "tslint.autoFixOnSave": true
+      ]
 }

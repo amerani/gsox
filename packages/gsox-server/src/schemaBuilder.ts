@@ -6,6 +6,10 @@ import { pubSub } from "./pubSubProvider";
 const typeDefs = gql`
   type Subscription {
       notification: Notification
+      ping: Ping
+  }
+  type Ping {
+      id: String
   }
   type Notification {
         type: String
@@ -32,7 +36,15 @@ const resolvers = {
                         return id === notification.id;
                   },
             ),
-        },
+      },
+      ping: {
+            subscribe: () => {
+                  setTimeout(() => pubSub.publish("#", {
+                      ping: { id: "0" },
+                  }), 2000);
+                  return pubSub.asyncIterator("#");
+            },
+      },
   },
 };
 

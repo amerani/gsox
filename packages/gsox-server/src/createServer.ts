@@ -19,13 +19,15 @@ export function createServer(app, serverOptions, routes) {
       ws.listen(serverOptions, () => {
             // tslint:disable-next-line:no-console
             console.log(`🚀 Server ready at http://localhost:${serverOptions.port}${server.graphqlPath}`);
-            SubscriptionServer.create({
-                  execute,
-                  schema,
-                  subscribe,
-            }, {
-                  path: routes.graphql,
-                  server: ws,
-            });
+
       });
+      SubscriptionServer.create({
+            execute,
+            schema,
+            subscribe,
+      }, {
+            path: routes.graphql,
+            server: ws,
+      });
+      return ws;
 }

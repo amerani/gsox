@@ -4,6 +4,7 @@
           "target": "es6",
           "moduleResolution": "node",
           "outDir": "lib",
+          "sourceMap": true,
           "lib": [
             "es2017",
             "esnext.asynciterable"
@@ -12,8 +13,5 @@
       },
       "include": [
           "packages/**/src/**/*"
-      ],
-      "tslint.run": "onSave",
-      "tslint.enable": true,
-      "tslint.autoFixOnSave": true
+      ]
 }
