@@ -1,6 +1,6 @@
 {
   "name": "@gsox/server",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "author": "Alek Merani",
   "license": "MIT",
   "main": "lib/index.js",
@@ -22,5 +22,8 @@
   },
   "directories": {
     "lib": "lib"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
