@@ -11,7 +11,7 @@
           "experimentalDecorators": true
       },
       "include": [
-          "packages/**/src/**/*"
+          "src/**/*"
       ],
       "tslint.run": "onSave",
       "tslint.enable": true,
