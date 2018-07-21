@@ -1,3 +1,3 @@
-import { PubSubEngine, PubSub } from "graphql-subscriptions";
+import { PubSub, PubSubEngine } from "graphql-subscriptions";
 
-export const pubSub:PubSubEngine = new PubSub();
+export const pubSub: PubSubEngine = new PubSub();

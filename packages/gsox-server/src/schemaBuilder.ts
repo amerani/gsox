@@ -1,7 +1,7 @@
-const { gql } = require('apollo-server-express');
-const { makeExecutableSchema } = require('graphql-tools');
-const { pubSub } = require('./pubSubProvider');
-const { withFilter } = require('graphql-subscriptions');
+import { gql } from "apollo-server-express";
+import { makeExecutableSchema } from "graphql-tools";
+import { pubSub } from "./pubSubProvider";
+import { withFilter } from "graphql-subscriptions";
 
 const typeDefs = gql`
   type Subscription {
@@ -26,15 +26,14 @@ const resolvers = {
   Subscription: {
       ["notification"]: {
             subscribe: withFilter(
-                  () => pubSub.asyncIterator('#'),
+                  () => pubSub.asyncIterator("#"),
                   (payload) => {
-                        const notification = payload["notification"]
-                        return id === notification["id"];
-                  }
-            )
-        }
-  }
+                        const notification = payload.notification;
+                        return id === notification.id;
+                  },
+            ),
+        },
+  },
 };
 
-export const schema = makeExecutableSchema({typeDefs, resolvers})
-
+export const schema = makeExecutableSchema({typeDefs, resolvers});
