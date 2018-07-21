@@ -1,0 +1,51 @@
+{
+  "name": "gsox-server",
+  "version": "0.1.0",
+  "author": "Alek Merani",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -d",
+    "lint": "tslint src/**/*.ts __tests__/**/*.test.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/graphql": "^0.13.3",
+    "apollo-server-express": "^2.0.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-subscriptions": "^0.5.8",
+    "graphql-tools": "^3.0.5",
+    "subscriptions-transport-ws": "^0.9.12"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.6",
+    "jest": "^23.4.1",
+    "ts-jest": "^23.0.0",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/__tests__/*.test.ts"
+    ]
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}
