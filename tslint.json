@@ -3,6 +3,12 @@
       "extends": [
           "tslint:recommended"
       ],
+      "linterOptions": {
+            "exclude": [
+                  "**/node_modules/**",
+                  "**/lib/**"
+            ]
+      },
       "jsRules": {},
       "rules": {},
       "rulesDirectory": []

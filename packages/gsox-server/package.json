@@ -1,5 +1,5 @@
 {
-  "name": "gsox-server",
+  "name": "@gsox/server",
   "version": "0.1.0",
   "author": "Alek Merani",
   "license": "MIT",
@@ -19,31 +19,6 @@
     "graphql-subscriptions": "^0.5.8",
     "graphql-tools": "^3.0.5",
     "subscriptions-transport-ws": "^0.9.12"
-  },
-  "devDependencies": {
-    "@types/jest": "^23.1.6",
-    "jest": "^23.4.1",
-    "ts-jest": "^23.0.0",
-    "ts-node": "^7.0.0",
-    "tslint": "^5.10.0",
-    "typescript": "^2.9.2"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.json"
-      }
-    },
-    "testMatch": [
-      "**/__tests__/*.test.ts"
-    ]
   },
   "directories": {
     "lib": "lib"
