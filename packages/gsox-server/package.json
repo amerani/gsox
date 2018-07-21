@@ -1,13 +1,11 @@
 {
   "name": "@gsox/server",
-  "version": "0.0.2",
+  "version": "0.1.2",
   "author": "Alek Merani",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc -d",
-    "lint": "tslint src/**/*.ts __tests__/**/*.test.ts",
-    "test": "jest"
+    "build": "tsc -d"
   },
   "dependencies": {
     "@types/graphql": "^0.13.3",

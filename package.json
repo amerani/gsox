@@ -6,7 +6,8 @@
   "scripts": {
     "build": "lerna run build",
     "test": "jest",
-    "lint": "tslint **/src/**/*.ts **/__tests__/**/*.ts"
+    "lint": "tslint **/src/**/*.ts **/__tests__/**/*.ts",
+    "publish": "yarn run build && lerna publish"
   },
   "author": "Alek Merani",
   "license": "MIT",

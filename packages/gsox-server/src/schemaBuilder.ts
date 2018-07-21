@@ -1,7 +1,7 @@
 import { gql } from "apollo-server-express";
+import { withFilter } from "graphql-subscriptions";
 import { makeExecutableSchema } from "graphql-tools";
 import { pubSub } from "./pubSubProvider";
-import { withFilter } from "graphql-subscriptions";
 
 const typeDefs = gql`
   type Subscription {

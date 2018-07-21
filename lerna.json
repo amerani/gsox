@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.1.2",
   "command": {
     "publish": {
       "ignoreChanges": [
@@ -10,5 +10,6 @@
   "packages": [
     "packages/*"
   ],
-  "lerna": "2.11.0"
+  "lerna": "2.11.0",
+  "registry": "https://registry.npmjs.org/"
 }

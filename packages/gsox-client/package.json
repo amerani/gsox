@@ -1,10 +1,10 @@
 {
   "name": "@gsox/client",
-  "version": "0.0.2",
+  "version": "0.1.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest"
+    "build": "tsc -d"
   },
   "author": "Alek Merani",
   "license": "MIT",
