@@ -1,17 +1,18 @@
 {
-      "compilerOptions": {
-          "module": "commonjs",
-          "target": "es6",
-          "moduleResolution": "node",
-          "outDir": "lib",
-          "sourceMap": true,
-          "lib": [
-            "es2017",
-            "esnext.asynciterable"
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "moduleResolution": "node",
+        "outDir": "lib",
+        "sourceMap": true,
+        "lib": [
+            "esnext",
+            "dom"
           ],
-          "experimentalDecorators": true
-      },
-      "include": [
-          "packages/**/src/**/*"
-      ]
+        "experimentalDecorators": true,
+        "jsx": "react"
+    },
+    "include": [
+        "packages/**/src/**/*"
+    ]
 }

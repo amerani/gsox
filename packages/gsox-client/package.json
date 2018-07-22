@@ -10,5 +10,16 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.2.5",
+    "apollo-client": "^2.3.5",
+    "apollo-link": "^1.2.2",
+    "apollo-link-ws": "^1.0.8",
+    "gql": "^1.1.2",
+    "graphql-tag": "^2.9.2",
+    "react": "^16.4.1",
+    "react-apollo": "^2.1.9",
+    "react-apollo-graphql": "^1.0.2"
   }
 }

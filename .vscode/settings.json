@@ -1,7 +1,7 @@
 {
       "eslint.enable": false,
-      "tslint.enable": true,
-      "tslint.autoFixOnSave": true,
+      "tslint.enable": false,
+      "tslint.autoFixOnSave": false,
       "tslint.exclude": [
             "**/node_modules/**",
             "**/lib/**"

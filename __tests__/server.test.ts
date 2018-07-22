@@ -4,7 +4,7 @@ import { WebSocketLink } from "apollo-link-ws";
 import { gql } from "apollo-server-express";
 import * as express from "express";
 import { SubscriptionClient } from "subscriptions-transport-ws";
-import { createServer } from "../src";
+import { createServer } from "../packages/gsox-server";
 
 let server;
 let client: ApolloClient<{}>;
@@ -19,7 +19,7 @@ beforeAll(() => {
       });
       const wsClient = new SubscriptionClient("ws://localhost:4000/graphql", { reconnect: true });
       client = new ApolloClient({
-            cache: new InMemoryCache(),
+            cache: new InMemoryCache({}),
             link: new WebSocketLink(wsClient),
       });
 });
