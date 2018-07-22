@@ -3,14 +3,15 @@ import * as bodyParser from "body-parser";
 import { execute, subscribe } from "graphql";
 import { createServer as http } from "http";
 import { SubscriptionServer } from "subscriptions-transport-ws";
+import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 import { schema } from "./schemaBuilder";
 
 export function createServer(app, serverOptions, routes) {
       const server = new ApolloServer({schema});
       app.post(routes.webhook, bodyParser.json(), (req, res) => {
-            pubSub.publish("#", { ["notification"]: req.body });
-            return res.sendStatus(202);
+            pubSub.publish(NOTIFICATION_TOPIC, req.body);
+            return res.sendStatus(200);
       });
 
       const ws = http(app);

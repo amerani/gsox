@@ -4,10 +4,10 @@ import { Subscription, SubscriptionResult } from "react-apollo";
 import { ApolloProvider } from 'react-apollo';
 import { client } from './client';
 
-const TEST_SUSBSCRIPTION = gql`
+const PING_SUSBSCRIPTION = gql`
   subscription {
-    test {
-      name
+    ping {
+      id
     }
   }
 `;
@@ -27,7 +27,7 @@ class SubscriptionProvider extends React.Component<any, any> {
         client={client}
         children={
           <Subscription
-          subscription={TEST_SUSBSCRIPTION}
+          subscription={PING_SUSBSCRIPTION}
           children={children}
         />
         }

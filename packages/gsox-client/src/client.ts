@@ -3,11 +3,13 @@ import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
 import { SubscriptionClient } from "subscriptions-transport-ws";
+import * as ws from "ws";
+
 const GRAPHQL_ENDPOINT = "ws://localhost:3000/graphql";
 
 const wsClient = new SubscriptionClient(GRAPHQL_ENDPOINT, {
   reconnect: true,
-});
+}, ws);
 
 const wsLink = new WebSocketLink(wsClient);
 
