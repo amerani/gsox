@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { FIELD_SYMBOL, TYPE_SYMBOL } from "../src/constants";
 
-function compile(obj: Object): string {
+function typeDef(obj: Object): string {
       const type = Reflect.get(obj, TYPE_SYMBOL);
       let schema = `type ${type} {\n`;
       const metadata = Reflect.getMetadata(FIELD_SYMBOL, obj);
@@ -13,5 +13,5 @@ function compile(obj: Object): string {
 }
 
 export {
-      compile,
+      typeDef,
 };

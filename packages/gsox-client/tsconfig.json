@@ -3,7 +3,8 @@
           "module": "es2015",
           "target": "es5",
           "moduleResolution": "node",
-          "outDir": "./lib",
+          "outDir": "lib",
+          "rootDir": "./src",
           "lib": [
             "esnext",
             "dom"
@@ -11,8 +12,8 @@
           "experimentalDecorators": true,
           "jsx": "react"
       },
-      "include": [
-          "src/**/*"
+      "types": ["node"],
+      "exclude": [
+          "**/*.test.ts"
       ],
-      "types": ["node"]
 }

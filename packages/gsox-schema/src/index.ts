@@ -1,2 +1,2 @@
 export * from "./decorators";
-export { compile as gqlString } from "./compile";
+export * from "./typeDef";

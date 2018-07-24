@@ -1,20 +1,20 @@
 {
       "compilerOptions": {
           "module": "commonjs",
-          "target": "es5",
+          "target": "es6",
           "moduleResolution": "node",
-          "outDir": "./lib",
+          "outDir": "lib",
+          "rootDir": "./src",
           "lib": [
-            "es6",
             "esnext",
             "dom"
           ],
           "experimentalDecorators": true,
           "emitDecoratorMetadata": true,
-          "jsx": "react"
+          "jsx": "react",
       },
-      "include": [
-          "src/**/*"
+      "exclude": [
+          "**/*.test.ts"
       ],
       "types": ["node", "reflect-metadata"]
 }

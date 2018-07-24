@@ -5,9 +5,11 @@
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc -d"
+    "build": "tsc -d",
+    "rebuild": "rimraf lib"
   },
   "dependencies": {
+    "@gsox/schema": "^0.1.6",
     "@types/graphql": "^0.13.3",
     "apollo-server-express": "^2.0.0",
     "body-parser": "^1.18.3",
@@ -16,6 +18,7 @@
     "graphql": "^0.13.2",
     "graphql-subscriptions": "^0.5.8",
     "graphql-tools": "^3.0.5",
+    "reflect-metadata": "^0.1.12",
     "subscriptions-transport-ws": "^0.9.12"
   },
   "directories": {

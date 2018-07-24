@@ -11,5 +11,6 @@
     "packages/*"
   ],
   "lerna": "2.11.0",
-  "registry": "https://registry.npmjs.org/"
+  "registry": "https://registry.npmjs.org/",
+  "npmClient": "yarn"
 }

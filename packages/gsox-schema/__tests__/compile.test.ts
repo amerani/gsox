@@ -1,5 +1,4 @@
-import { compile } from "../src/compile";
-import { Field, Type } from "../src/decorators";
+import { Field, Type, typeDef } from "../src";
 
 @Type()
 class Ping {
@@ -12,6 +11,6 @@ let ping: Ping;
 beforeAll(() => ping = new Ping());
 
 test("should compile", () => {
-      const output = compile(ping);
+      const output = typeDef(ping);
       expect(output).not.toBeNull();
 });

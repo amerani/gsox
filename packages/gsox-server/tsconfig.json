@@ -4,15 +4,17 @@
         "target": "es6",
         "moduleResolution": "node",
         "outDir": "lib",
-        "sourceMap": true,
+        "rootDir": "./src",
         "lib": [
-            "esnext",
-            "dom"
-          ],
+          "esnext",
+          "dom"
+        ],
         "experimentalDecorators": true,
-        "jsx": "react"
+        "emitDecoratorMetadata": true,
+        "jsx": "react",
     },
-    "include": [
-        "src/**/*"
-    ]
+    "exclude": [
+        "**/*.test.ts"
+    ],
+    "types": ["node", "reflect-metadata"]
 }

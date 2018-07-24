@@ -1,7 +1,8 @@
+import "reflect-metadata";
 import { gql } from "apollo-server-express";
 import { withFilter } from "graphql-subscriptions";
 import { makeExecutableSchema } from "graphql-tools";
-import { Field, gqlString, Type } from "../../gsox-schema/src";
+import { Field, typeDef, Type } from "@gsox/schema";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 
@@ -22,8 +23,8 @@ class Notification {
       public data: string;
 }
 
-const ping = gqlString(new Ping());
-const not = gqlString(new Notification());
+const ping = typeDef(new Ping());
+const not = typeDef(new Notification());
 
 const typeDefs = gql`
       type Subscription {
