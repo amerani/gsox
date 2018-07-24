@@ -5,25 +5,39 @@ import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 
 const typeDefs = gql`
-  type Subscription {
-      notification: Notification
-      ping: Ping
-  }
-  type Ping {
-      id: String
-  }
-  type Notification {
-        id: Int
-        type: String
-        timestamp: String
-  }
-  type Query {
-        hello: String
-  }
-  type schema {
-        subscription: Subscription
-        query: Query
-  }
+      type Subscription {
+            notification: Notification
+            ping: Ping
+      }
+
+      type Ping {
+            id: String
+      }
+
+      type Notification {
+            internalId: Int
+      }
+
+      extend type Notification {
+            id: Int
+      }
+
+      extend type Notification {
+            type: String
+      }
+
+      extend type Notification {
+            timestamp: String
+      }
+
+      type Query {
+            hello: String
+      }
+
+      type schema {
+            subscription: Subscription
+            query: Query
+      }
 `;
 
 const id = 99;

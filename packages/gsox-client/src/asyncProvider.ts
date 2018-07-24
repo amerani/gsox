@@ -20,8 +20,4 @@ client.subscribe({
 
             }
             }`,
-}).subscribe(
-      console.log,
-      console.log,
-      console.log,
-);
+});
