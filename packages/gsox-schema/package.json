@@ -9,5 +9,11 @@
   },
   "dependencies": {
     "reflect-metadata": "^0.1.12"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,8 +1,29 @@
 import { gql } from "apollo-server-express";
 import { withFilter } from "graphql-subscriptions";
 import { makeExecutableSchema } from "graphql-tools";
+import { Field, gqlString, Type } from "../../gsox-schema/src";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
+
+@Type()
+class Ping {
+
+      @Field()
+      public id: string;
+}
+
+@Type()
+class Notification {
+      @Field(null, "Int")
+      public id: number;
+      @Field()
+      public type: string;
+      @Field("timestamp")
+      public data: string;
+}
+
+const ping = gqlString(new Ping());
+const not = gqlString(new Notification());
 
 const typeDefs = gql`
       type Subscription {
@@ -10,25 +31,9 @@ const typeDefs = gql`
             ping: Ping
       }
 
-      type Ping {
-            id: String
-      }
+      ${ping}
 
-      type Notification {
-            internalId: Int
-      }
-
-      extend type Notification {
-            id: Int
-      }
-
-      extend type Notification {
-            type: String
-      }
-
-      extend type Notification {
-            timestamp: String
-      }
+      ${not}
 
       type Query {
             hello: String
