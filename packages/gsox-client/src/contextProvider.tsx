@@ -24,7 +24,7 @@ class SubscriptionProvider extends React.Component<any, any> {
   render() {
     return (
       <ApolloProvider
-        client={client}
+        client={client(this.props.ws)}
         children={
           <Subscription
           subscription={PING_SUSBSCRIPTION}
