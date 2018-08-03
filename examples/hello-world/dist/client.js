@@ -2221,7 +2221,7 @@ eval("\n\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./decorators */ \"./packages/gsox-schema/lib/decorators.js\"));\n__export(__webpack_require__(/*! ./typeDef */ \"./packages/gsox-schema/lib/typeDef.js\"));\n__export(__webpack_require__(/*! ./subscription */ \"./packages/gsox-schema/lib/subscription.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/index.js?");
+eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./decorators */ \"./packages/gsox-schema/lib/decorators.js\"));\n__export(__webpack_require__(/*! ./typeDef */ \"./packages/gsox-schema/lib/typeDef.js\"));\n__export(__webpack_require__(/*! ./subscription */ \"./packages/gsox-schema/lib/subscription.js\"));\n__export(__webpack_require__(/*! ./typeSub */ \"./packages/gsox-schema/lib/typeSub.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/index.js?");
 
 /***/ }),
 
@@ -2246,6 +2246,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__we
 
 "use strict";
 eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-schema/node_modules/reflect-metadata/Reflect.js\");\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./packages/gsox-schema/lib/constants.js\");\nfunction typeDef(obj) {\n    var type = Reflect.get(obj, constants_1.TYPE_SYMBOL);\n    var schema = \"type \" + type + \" {\\n\";\n    var metadata = Reflect.getMetadata(constants_1.FIELD_SYMBOL, obj);\n    metadata.forEach(function (field) {\n        schema += \"\\t\" + field.name + \": \" + field.type + \"\\n\";\n    });\n    schema += \"}\";\n    return schema;\n}\nexports.typeDef = typeDef;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/typeDef.js?");
+
+/***/ }),
+
+/***/ "./packages/gsox-schema/lib/typeSub.js":
+/*!*********************************************!*\
+  !*** ./packages/gsox-schema/lib/typeSub.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-schema/node_modules/reflect-metadata/Reflect.js\");\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./packages/gsox-schema/lib/constants.js\");\nfunction typeSub(T) {\n    var obj = new T();\n    var type = Reflect.get(obj, constants_1.TYPE_SYMBOL);\n    var schema = \"subscription {\\n\\t\" + type + \" {\\n\";\n    var metadata = Reflect.getMetadata(constants_1.FIELD_SYMBOL, obj);\n    metadata.forEach(function (field) {\n        schema += \"\\t\\t\" + field.name + \"\\n\";\n    });\n    schema += \"\\t}\\n}\";\n    return schema;\n}\nexports.typeSub = typeSub;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/typeSub.js?");
 
 /***/ }),
 

@@ -6,7 +6,7 @@ import { createServer } from "../packages/gsox-server";
 import { createClient } from "../packages/gsox-client";
 import { Ping } from './Ping';
 import { Notification } from './Notification';
-import { subscription } from "../packages/gsox-schema";
+import { subscription, typeSub } from "../packages/gsox-schema";
 
 const host = "localhost";
 const port = 5000;
@@ -33,7 +33,7 @@ test("should connect", () => {
 test("should ping", (done) => {
       client
       .subscribe({
-            query: gql`${subscription(new Ping())}`,
+            query: gql`${typeSub(Ping)}`,
       })
       .subscribe({
             next({data: {Ping}}) {
@@ -52,7 +52,7 @@ test("should subscribe", (done) => {
       };
       client
       .subscribe({
-            query: gql`${subscription(new Notification())}`,
+            query: gql`${typeSub(Notification)}`,
       })
       .subscribe({
             next({data}) {
