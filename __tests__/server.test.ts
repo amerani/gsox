@@ -1,12 +1,12 @@
 import "reflect-metadata";
-import { gql } from "apollo-server-express";
+import gql from "graphql-tag";
 import * as express from "express";
 import * as http from "http";
 import { createServer } from "../packages/gsox-server";
 import { createClient } from "../packages/gsox-client";
 import { Ping } from './Ping';
 import { Notification } from './Notification';
-import { subscription, typeSub } from "../packages/gsox-schema";
+import { typeSub } from "../packages/gsox-schema";
 
 const host = "localhost";
 const port = 5000;
@@ -33,7 +33,7 @@ test("should connect", () => {
 test("should ping", (done) => {
       client
       .subscribe({
-            query: gql`${typeSub(Ping)}`,
+            query: gql(typeSub(Ping)),
       })
       .subscribe({
             next({data: {Ping}}) {
@@ -52,7 +52,7 @@ test("should subscribe", (done) => {
       };
       client
       .subscribe({
-            query: gql`${typeSub(Notification)}`,
+            query: gql(typeSub(Notification)),
       })
       .subscribe({
             next({data}) {

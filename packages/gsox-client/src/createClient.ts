@@ -11,12 +11,17 @@ function createClient(options) {
 
       const wsLink = new WebSocketLink(wsClient);
 
-      return new ApolloClient({
+      const client = new ApolloClient({
         cache: new InMemoryCache(),
         connectToDevTools: true,
         link: ApolloLink.from([wsLink]),
         ssrForceFetchDelay: 100,
       });
+
+      return {
+            rawClient: client,
+            subscribe: (options) => client.subscribe(options)
+      }
 }
 
 export {
