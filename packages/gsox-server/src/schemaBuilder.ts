@@ -28,8 +28,8 @@ const not = typeDef(new Notification());
 
 const typeDefs = gql`
       type Subscription {
-            notification: Notification
-            ping: Ping
+            Notification: Notification
+            Ping: Ping
       }
 
       ${ping}
@@ -50,20 +50,20 @@ const id = 99;
 
 const resolvers = {
   Subscription: {
-      ["notification"]: {
+      ["Notification"]: {
             subscribe: withFilter(
                   () => pubSub.asyncIterator(NOTIFICATION_TOPIC),
                   (payload) => {
                         if (!payload) { return false; }
-                        const notification = payload.notification;
+                        const notification = payload.Notification;
                         return notification.id === id;
                   },
             ),
       },
-      ping: {
+      Ping: {
             subscribe: () => {
                   setInterval(() => pubSub.publish("test", {
-                      ping: { id: 0 },
+                      Ping: { id: 0 },
                   }), 2000);
                   return pubSub.asyncIterator("test");
             },

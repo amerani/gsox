@@ -1,6 +1,6 @@
 import { Type, Field } from '@gsox/schema';
 
-@Type('ping')
+@Type()
 class Ping {
     @Field('id', 'Int')
     id

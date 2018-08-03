@@ -41,21 +41,21 @@ test("should ping", (done) => {
       client.subscribe({
             query: gql`
                   subscription {
-                        ping {
+                        Ping {
                               id
                         }
                   }`,
       }).subscribe({
-            next({data: {ping}}) {
-                  expect(parseInt(ping.id)).toBe(0);
+            next({data: {Ping}}) {
+                  expect(parseInt(Ping.id)).toBe(0);
                   done();
             },
       });
 });
 
-test("should subscribe", (done) => {
+test.only("should subscribe", (done) => {
       const testData = {
-            notification: {
+            Notification: {
                   type: "test_email",
                   timestamp: "2019",
                   id: 99,
@@ -64,7 +64,7 @@ test("should subscribe", (done) => {
       client.subscribe({
             query: gql`
             subscription {
-                  notification {
+                  Notification {
                     type
                     id
 
@@ -72,7 +72,7 @@ test("should subscribe", (done) => {
                 }`,
       }).subscribe({
             next({data}) {
-                  expect(data.notification.id).toBe(testData.notification.id);
+                  expect(data.Notification.id).toBe(testData.Notification.id);
                   done();
             },
             error(e) { expect(e).toBeNull(); done(); },
