@@ -1,12 +1,10 @@
 import "reflect-metadata";
-import gql from "graphql-tag";
 import * as express from "express";
 import * as http from "http";
 import { createServer } from "../packages/gsox-server";
 import { createClient } from "../packages/gsox-client";
 import { Ping } from './Ping';
 import { Notification } from './Notification';
-import { typeSub } from "../packages/gsox-schema";
 
 const host = "localhost";
 const port = 5000;
@@ -32,9 +30,7 @@ test("should connect", () => {
 
 test("should ping", (done) => {
       client
-      .subscribe({
-            query: gql(typeSub(Ping)),
-      })
+      .subscribe(Ping)
       .subscribe({
             next({data: {Ping}}) {
                   expect(parseInt(Ping.id)).toBe(0);
@@ -51,9 +47,7 @@ test("should subscribe", (done) => {
             },
       };
       client
-      .subscribe({
-            query: gql(typeSub(Notification)),
-      })
+      .subscribe(Notification)
       .subscribe({
             next({data}) {
                   expect(data.Notification.id).toBe(testData.Notification.id);
