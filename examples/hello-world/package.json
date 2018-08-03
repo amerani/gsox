@@ -8,5 +8,8 @@
     "@gsox/client": "^0.1.8",
     "@gsox/schema": "^0.1.8",
     "@gsox/server": "^0.1.8"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
