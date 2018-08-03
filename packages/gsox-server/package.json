@@ -1,6 +1,6 @@
 {
   "name": "@gsox/server",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Alek Merani",
   "license": "MIT",
   "main": "lib/index.js",
@@ -9,7 +9,7 @@
     "clean": "rimraf lib"
   },
   "dependencies": {
-    "@gsox/schema": "^0.1.7",
+    "@gsox/schema": "^0.1.8",
     "@types/graphql": "^0.13.3",
     "apollo-server-express": "^2.0.0",
     "body-parser": "^1.18.3",
