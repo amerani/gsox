@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "lerna run build",
-    "rebuild": "lerna run rebuild && lerna run build && wp --config ./examples/webpack.config.js",
-    "clean": "lerna clean",
+    "clean": "lerna run --parallel clean",
+    "rebuild": "yarn run clean && yarn run build && wp --config ./examples/hello-world/webpack.config.js",
     "bootstrap": "lerna bootstrap",
     "test": "jest",
     "lint": "tslint **/src/**/*.ts **/__tests__/**/*.ts",
     "publish": "yarn run rebuild && lerna publish",
-    "serve": "concurrently \"node examples/server.js\" \"webpack-dev-server --config examples/webpack.config.js\"",
+    "serve": "concurrently \"node examples/hello-world/server.js\" \"webpack-dev-server --config examples/hello-world/webpack.config.js\"",
     "link": "lerna link"
   },
   "author": "Alek Merani",
@@ -51,7 +51,9 @@
     "webpack-cli": "^3.1.0",
     "webpack-command": "^0.4.1",
     "webpack-dev-server": "^3.1.5",
-    "ws": "^6.0.0"
+    "ws": "^6.0.0",
+    "apollo-client": "^2.3.5",
+    "subscriptions-transport-ws": "^0.9.12"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -69,9 +71,5 @@
     "testMatch": [
       "**/__tests__/*.test.ts"
     ]
-  },
-  "dependencies": {
-    "apollo-client": "^2.3.5",
-    "subscriptions-transport-ws": "^0.9.12"
   }
 }

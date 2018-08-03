@@ -8,7 +8,8 @@
     }
   },
   "packages": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "lerna": "2.11.0",
   "registry": "https://registry.npmjs.org/",

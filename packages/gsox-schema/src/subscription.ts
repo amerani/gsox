@@ -17,13 +17,13 @@ function subscription(obj: Object):string {
       let schema = `subscription {\n\t${type} {\n`;
       const metadata = Reflect.getMetadata(FIELD_SYMBOL, obj);
       metadata.forEach(field => {
-            schema += `\t${field.name}: ${field.type}\n`;
+            schema += `\t\t${field.name}\n`;
       });
-      schema += `}`;
+      schema += `\t}\n}`;
       return schema;
 }
 
 export {
-      typeDef,
+      // typeDef,
       subscription
 };

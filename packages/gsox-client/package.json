@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc -d",
-    "rebuild": "rimraf lib"
+    "clean": "rimraf lib"
   },
   "author": "Alek Merani",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@gsox/schema": "^0.1.7",
     "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",
     "apollo-link": "^1.2.2",

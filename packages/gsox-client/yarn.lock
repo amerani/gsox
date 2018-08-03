@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@gsox/schema@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.7.tgz#8b1234c08ee3cf7e6e7dd408c3c3beda8898b15f"
+  dependencies:
+    reflect-metadata "^0.1.12"
+
 "@types/async@2.0.49":
   version "2.0.49"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.49.tgz#92e33d13f74c895cb9a7f38ba97db8431ed14bc0"
@@ -71,10 +77,6 @@ apollo-utilities@^1.0.0, apollo-utilities@^1.0.16:
 asap@~2.0.3:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
-
-async-limiter@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
 
 core-js@^1.0.0:
   version "1.2.7"
@@ -214,6 +216,10 @@ react@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+reflect-metadata@^0.1.12:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.12.tgz#311bf0c6b63cd782f228a81abe146a2bfa9c56f2"
+
 "safer-buffer@>= 2.1.2 < 3":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
@@ -233,12 +239,6 @@ ua-parser-js@^0.7.18:
 whatwg-fetch@>=0.10.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
-
-ws@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-6.0.0.tgz#eaa494aded00ac4289d455bac8d84c7c651cef35"
-  dependencies:
-    async-limiter "~1.0.0"
 
 zen-observable-ts@^0.8.9:
   version "0.8.9"

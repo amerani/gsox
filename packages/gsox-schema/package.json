@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -d",
-    "rebuild": "rimraf lib"
+    "clean": "rimraf lib"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.12"

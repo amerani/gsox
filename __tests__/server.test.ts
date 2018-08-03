@@ -7,7 +7,7 @@ import * as express from "express";
 import * as http from "http";
 import { SubscriptionClient } from "subscriptions-transport-ws";
 import * as ws from "ws";
-import { createServer } from "@gsox/server";
+import { createServer } from "../packages/gsox-server"
 
 const hostname = "localhost";
 const port = 5000;

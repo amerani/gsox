@@ -1,8 +1,8 @@
 const express = require("express");
-const server = require("../packages/gsox-server/lib");
+const server = require("@gsox/server");
 const React = require('react');
 const ReactDOMServer = require("react-dom/server");
-const { DataProvider } = require("../packages/gsox-client/lib")
+const { DataProvider } = require("@gsox/client")
 const DOM = require('react-dom-factories')
 const path = require('path')
 const div = DOM.div, button = DOM.button, ul = DOM.ul, li = DOM.li, body = DOM.body, script = DOM.script
@@ -27,7 +27,7 @@ app.get("/client", function (req, res) {
           dangerouslySetInnerHTML: {__html: ReactDOMServer.renderToString(React.createElement(DataProvider, { ws } ))},
         }),
 
-        script({type: "text/javascript", src: 'http://localhost:8080/examples/dist/bundle.js'})
+        script({type: "text/javascript", src: 'http://localhost:8080/examples/hello-world/dist/bundle.js'})
       ))
 
       res.end(html)
