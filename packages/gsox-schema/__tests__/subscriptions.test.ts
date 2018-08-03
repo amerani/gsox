@@ -8,13 +8,10 @@ class Message {
       @Field()
       public id: number;
 
-      @Field("userId")
-      public user: string;
-
-      @Field(null, "Int")
+      @Field("Int")
       public value: number;
 
-      @Field("msg", "String")
+      @Field("String")
       public message: any;
 
       public meta: any;

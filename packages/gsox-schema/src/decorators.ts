@@ -9,7 +9,7 @@ function Type(value?) {
         };
 }
 
-function Field(name?, type?) {
+function Field(type?, name?) {
       return function(obj, prop) {
             const id = prop;
             name = name || prop;

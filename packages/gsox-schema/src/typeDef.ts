@@ -13,5 +13,5 @@ function typeDef(obj: Object): string {
 }
 
 export {
-      typeDef,
+      typeDef
 };

@@ -53,7 +53,7 @@ test("should ping", (done) => {
       });
 });
 
-test.only("should subscribe", (done) => {
+test("should subscribe", (done) => {
       const testData = {
             Notification: {
                   type: "test_email",

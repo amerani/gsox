@@ -8,18 +8,17 @@ import { pubSub } from "./pubSubProvider";
 
 @Type()
 class Ping {
-
       @Field()
       public id: string;
 }
 
 @Type()
 class Notification {
-      @Field(null, "Int")
+      @Field("Int")
       public id: number;
       @Field()
       public type: string;
-      @Field("timestamp")
+      @Field(null, "timestamp")
       public data: string;
 }
 
