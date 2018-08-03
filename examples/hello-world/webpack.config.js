@@ -1,8 +1,10 @@
 const path = require('path');
 module.exports = {
     mode: "development",
-    entry: path.resolve(".", __dirname, "client.js"),
-    output: { path: __dirname, filename: 'dist/bundle.js' },
+    entry: {
+      "client": path.resolve(".", __dirname, "client.js"),
+    },
+    output: { path: __dirname, filename: 'dist/[name].js' },
     module: {
       rules: [
         {
@@ -10,7 +12,8 @@ module.exports = {
           loader: 'babel-loader',
           exclude: /node_modules/,
           query: {
-            presets: ['env', 'react']
+            presets: ['env', 'react', 'stage-0'],
+            plugins: ['transform-decorators-legacy' ]
           }
         }
       ]

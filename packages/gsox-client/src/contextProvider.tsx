@@ -3,13 +3,7 @@ import * as React from "react";
 import { Subscription, SubscriptionResult } from "react-apollo";
 import { ApolloProvider } from 'react-apollo';
 import { client } from './client';
-import { Type, Field, typeDef, subscription } from '@gsox/schema';
-
-@Type("ping")
-class Ping {
-      @Field(null, "Int")
-      public id: number;
-}
+import { subscription } from '@gsox/schema';
 
 const children = (result: SubscriptionResult<any> ): React.ReactNode => {
   const { data, loading, error } = result;
@@ -21,12 +15,13 @@ const children = (result: SubscriptionResult<any> ): React.ReactNode => {
 
 class SubscriptionProvider extends React.Component<any, any> {
   render() {
+    const query = gql`${subscription(this.props.inject)}`;
     return (
       <ApolloProvider
         client={client(this.props.ws)}
         children={
           <Subscription
-          subscription={gql`${subscription(new Ping())}`}
+          subscription={query}
           children={children}
         />
         }
