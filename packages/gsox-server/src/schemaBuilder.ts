@@ -1,8 +1,8 @@
-import "reflect-metadata";
+import { Field, Type, typeDef } from "@gsox/schema";
 import { gql } from "apollo-server-express";
 import { withFilter } from "graphql-subscriptions";
 import { makeExecutableSchema } from "graphql-tools";
-import { Field, typeDef, Type } from "@gsox/schema";
+import "reflect-metadata";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 

@@ -6,8 +6,8 @@ import { SubscriptionClient } from "subscriptions-transport-ws";
 
 const GRAPHQL_ENDPOINT = "ws://localhost:3000/graphql";
 
-export const client = function(ws) {
-  const wsClient = new SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws)
+export const client = (ws) => {
+  const wsClient = new SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws);
 
   const wsLink = new WebSocketLink(wsClient);
 
@@ -17,4 +17,4 @@ export const client = function(ws) {
     link: ApolloLink.from([wsLink]),
     ssrForceFetchDelay: 100,
   });
-}
+};

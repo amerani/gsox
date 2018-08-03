@@ -1,9 +1,8 @@
 import "reflect-metadata";
-import { FIELD_SYMBOL, TYPE_SYMBOL } from "../src/constants";
 import { Field, Type } from "../src/decorators";
-import { subscription }
- from '../src/subscription';
-@Type('message')
+import { subscription } from "../src/subscription";
+
+@Type("message")
 class Message {
 
       @Field()
@@ -24,7 +23,7 @@ class Message {
 let message: Message;
 beforeAll(() => message = new Message());
 
-test("should get type", () => {
+test("should output subscription", () => {
       const sub = subscription(message);
       console.log(sub);
 });

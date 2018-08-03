@@ -1,13 +1,13 @@
-import "reflect-metadata";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloClient} from "apollo-client";
 import { WebSocketLink } from "apollo-link-ws";
 import { gql } from "apollo-server-express";
 import * as express from "express";
 import * as http from "http";
+import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
 import * as ws from "ws";
-import { createServer } from "../packages/gsox-server"
+import { createServer } from "../packages/gsox-server";
 
 const hostname = "localhost";
 const port = 5000;

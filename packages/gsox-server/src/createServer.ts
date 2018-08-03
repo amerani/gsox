@@ -1,8 +1,8 @@
-import "reflect-metadata";
 import { ApolloServer } from "apollo-server-express";
 import * as bodyParser from "body-parser";
 import { execute, subscribe } from "graphql";
 import { createServer as http } from "http";
+import "reflect-metadata";
 import { SubscriptionServer } from "subscriptions-transport-ws";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
