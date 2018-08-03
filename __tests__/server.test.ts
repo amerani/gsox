@@ -4,6 +4,9 @@ import * as express from "express";
 import * as http from "http";
 import { createServer } from "../packages/gsox-server";
 import { createClient } from "../packages/gsox-client";
+import { Ping } from './Ping';
+import { Notification } from './Notification';
+import { subscription } from "../packages/gsox-schema";
 
 const host = "localhost";
 const port = 5000;
@@ -28,14 +31,11 @@ test("should connect", () => {
 });
 
 test("should ping", (done) => {
-      client.subscribe({
-            query: gql`
-                  subscription {
-                        Ping {
-                              id
-                        }
-                  }`,
-      }).subscribe({
+      client
+      .subscribe({
+            query: gql`${subscription(new Ping())}`,
+      })
+      .subscribe({
             next({data: {Ping}}) {
                   expect(parseInt(Ping.id)).toBe(0);
                   done();
@@ -50,16 +50,11 @@ test("should subscribe", (done) => {
                   id: 99
             },
       };
-      client.subscribe({
-            query: gql`
-            subscription {
-                  Notification {
-                    type
-                    id
-                    timestamp
-                  }
-                }`,
-      }).subscribe({
+      client
+      .subscribe({
+            query: gql`${subscription(new Notification())}`,
+      })
+      .subscribe({
             next({data}) {
                   expect(data.Notification.id).toBe(testData.Notification.id);
                   done();
@@ -78,5 +73,5 @@ test("should subscribe", (done) => {
             });
             req.write(Buffer.from(JSON.stringify(testData)));
             req.end();
-      }, 2000);
+      }, 1000);
 }, 20000);
