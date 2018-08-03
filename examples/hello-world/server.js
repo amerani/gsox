@@ -5,10 +5,11 @@ const path = require('path')
 const app = express();
 server.createServer(app, {
     host: "localhost",
-    port: 3000
-}, {
-    graphql: "/graphql",
-    webhook: "/webhook"
+    port: 3000,
+    routes: {
+        graphql: "/graphql",
+        webhook: "/webhook"
+    }
 });
 
 app.use('/', express.static(path.join(__dirname)));

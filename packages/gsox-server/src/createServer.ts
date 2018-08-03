@@ -8,19 +8,25 @@ import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 import { schema } from "./schemaBuilder";
 
-export function createServer(app, serverOptions, routes) {
-      const server = new ApolloServer({schema});
+export function createServer(app, options) {
+      const { host, port, routes } = options;
+
+      //add webhook endpoint
       app.post(routes.webhook, bodyParser.json(), (req, res) => {
             pubSub.publish(NOTIFICATION_TOPIC, req.body);
             return res.sendStatus(200);
       });
 
-      const ws = http(app);
+      //init apollo server
+      const server = new ApolloServer({schema});
       server.applyMiddleware({ app });
 
-      ws.listen(serverOptions, () => {
+      //setup websockets endpoint
+      const ws = http(app);
+
+      ws.listen({ host, port }, () => {
             // tslint:disable-next-line:no-console
-            console.log(`🚀 Server ready at http://localhost:${serverOptions.port}${server.graphqlPath}`);
+            console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
 
       });
       SubscriptionServer.create({

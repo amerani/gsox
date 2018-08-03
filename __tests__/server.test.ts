@@ -1,32 +1,22 @@
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { ApolloClient} from "apollo-client";
-import { WebSocketLink } from "apollo-link-ws";
+import "reflect-metadata";
 import { gql } from "apollo-server-express";
 import * as express from "express";
 import * as http from "http";
-import "reflect-metadata";
-import { SubscriptionClient } from "subscriptions-transport-ws";
-import * as ws from "ws";
 import { createServer } from "../packages/gsox-server";
+import { createClient } from "../packages/gsox-client";
 
-const hostname = "localhost";
+const host = "localhost";
 const port = 5000;
+const routes = {
+      graphql: "/graphql",
+      webhook: "/webhook"
+}
 let server;
-let client: ApolloClient<{}>;
+let client;
 beforeAll(() => {
       const app = express();
-      server = createServer(app, {
-            host: "localhost",
-            port,
-      }, {
-            graphql: "/graphql",
-            webhook: "/webhook",
-      });
-      const wsClient = new SubscriptionClient(`ws://localhost:${port}/graphql`, { reconnect: true }, ws);
-      client = new ApolloClient({
-            cache: new InMemoryCache({}),
-            link: new WebSocketLink(wsClient),
-      });
+      server = createServer(app, { host, port, routes });
+      client = createClient({ host, port, routes });
 });
 
 afterAll(() => {
@@ -57,8 +47,7 @@ test("should subscribe", (done) => {
       const testData = {
             Notification: {
                   type: "test_email",
-                  timestamp: "2019",
-                  id: 99,
+                  id: 99
             },
       };
       client.subscribe({
@@ -67,7 +56,7 @@ test("should subscribe", (done) => {
                   Notification {
                     type
                     id
-
+                    timestamp
                   }
                 }`,
       }).subscribe({
@@ -80,12 +69,12 @@ test("should subscribe", (done) => {
 
       setTimeout(() => {
             const req = http.request({
-                  hostname, port,
+                  hostname: host, port,
                   method: "POST",
                   headers: {
                         "Content-Type": "application/json",
                   },
-                  path: "/webhook",
+                  path: routes.webhook,
             });
             req.write(Buffer.from(JSON.stringify(testData)));
             req.end();
