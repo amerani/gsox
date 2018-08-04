@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar React = _interopRequireWildcard(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar ReactDOM = _interopRequireWildcard(_reactDom);\n\nvar _client = __webpack_require__(/*! @gsox/client */ \"./packages/gsox-client/lib/index.js\");\n\nvar _types = __webpack_require__(/*! ./types */ \"./examples/hello-world/types.js\");\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nReactDOM.render(React.createElement(_client.DataProvider, { inject: new _types.Ping() }), document.getElementById('content'));\n\n//# sourceURL=webpack:///./examples/hello-world/client.js?");
+eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar React = _interopRequireWildcard(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar ReactDOM = _interopRequireWildcard(_reactDom);\n\nvar _client = __webpack_require__(/*! @gsox/client */ \"./packages/gsox-client/lib/index.js\");\n\nvar _types = __webpack_require__(/*! ./types */ \"./examples/hello-world/types.js\");\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nReactDOM.render(React.createElement(\n      _client.ChannelProvider,\n      { inject: new _types.Ping() },\n      function (_ref) {\n            var loading = _ref.loading,\n                data = _ref.data,\n                error = _ref.error;\n\n            if (loading) console.log(\"loading\");\n            if (error) console.log(\"error\", error);\n            if (data) console.log(data);\n            return null;\n      }\n), document.getElementById('content'));\n\n//# sourceURL=webpack:///./examples/hello-world/client.js?");
 
 /***/ }),
 
@@ -729,27 +729,27 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 
 /***/ }),
 
-/***/ "./packages/gsox-client/lib/client.js":
-/*!********************************************!*\
-  !*** ./packages/gsox-client/lib/client.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar apollo_cache_inmemory_1 = __webpack_require__(/*! apollo-cache-inmemory */ \"./packages/gsox-client/node_modules/apollo-cache-inmemory/lib/index.js\");\nvar apollo_client_1 = __webpack_require__(/*! apollo-client */ \"./packages/gsox-client/node_modules/apollo-client/index.js\");\nvar apollo_link_1 = __webpack_require__(/*! apollo-link */ \"./packages/gsox-client/node_modules/apollo-link/lib/index.js\");\nvar apollo_link_ws_1 = __webpack_require__(/*! apollo-link-ws */ \"./packages/gsox-client/node_modules/apollo-link-ws/lib/index.js\");\nvar subscriptions_transport_ws_1 = __webpack_require__(/*! subscriptions-transport-ws */ \"./node_modules/subscriptions-transport-ws/dist/client.js\");\nvar GRAPHQL_ENDPOINT = \"ws://localhost:3000/graphql\";\nexports.client = function (ws) {\n    var wsClient = new subscriptions_transport_ws_1.SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws);\n    var wsLink = new apollo_link_ws_1.WebSocketLink(wsClient);\n    return new apollo_client_1.default({\n        cache: new apollo_cache_inmemory_1.InMemoryCache(),\n        connectToDevTools: true,\n        link: apollo_link_1.ApolloLink.from([wsLink]),\n        ssrForceFetchDelay: 100\n    });\n};\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/client.js?");
-
-/***/ }),
-
-/***/ "./packages/gsox-client/lib/contextProvider.js":
+/***/ "./packages/gsox-client/lib/channelProvider.js":
 /*!*****************************************************!*\
-  !*** ./packages/gsox-client/lib/contextProvider.js ***!
+  !*** ./packages/gsox-client/lib/channelProvider.js ***!
   \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar __extends = undefined && undefined.__extends || function () {\n    var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {\n        d.__proto__ = b;\n    } || function (d, b) {\n        for (var p in b) {\n            if (b.hasOwnProperty(p)) d[p] = b[p];\n        }\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() {\n            this.constructor = d;\n        }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n}();\nvar __makeTemplateObject = undefined && undefined.__makeTemplateObject || function (cooked, raw) {\n    if (Object.defineProperty) {\n        Object.defineProperty(cooked, \"raw\", { value: raw });\n    } else {\n        cooked.raw = raw;\n    }\n    return cooked;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graphql_tag_1 = __webpack_require__(/*! graphql-tag */ \"./packages/gsox-client/node_modules/graphql-tag/src/index.js\");\nvar React = __webpack_require__(/*! react */ \"./packages/gsox-client/node_modules/react/index.js\");\nvar react_apollo_1 = __webpack_require__(/*! react-apollo */ \"./packages/gsox-client/node_modules/react-apollo/react-apollo.browser.umd.js\");\nvar react_apollo_2 = __webpack_require__(/*! react-apollo */ \"./packages/gsox-client/node_modules/react-apollo/react-apollo.browser.umd.js\");\nvar client_1 = __webpack_require__(/*! ./client */ \"./packages/gsox-client/lib/client.js\");\nvar schema_1 = __webpack_require__(/*! @gsox/schema */ \"./packages/gsox-schema/lib/index.js\");\nvar children = function children(result) {\n    var data = result.data,\n        loading = result.loading,\n        error = result.error;\n    if (loading) console.log(\"loading\");\n    if (error) console.log(\"error\", error);\n    if (data) console.log(data);\n    return null;\n};\nvar SubscriptionProvider = /** @class */function (_super) {\n    __extends(SubscriptionProvider, _super);\n    function SubscriptionProvider() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    SubscriptionProvider.prototype.render = function () {\n        var query = graphql_tag_1.default(templateObject_1 || (templateObject_1 = __makeTemplateObject([\"\", \"\"], [\"\", \"\"])), schema_1.subscription(this.props.inject));\n        return React.createElement(react_apollo_2.ApolloProvider, { client: client_1.client(this.props.ws), children: React.createElement(react_apollo_1.Subscription, { subscription: query, children: children }) });\n    };\n    return SubscriptionProvider;\n}(React.Component);\nexports.DataProvider = SubscriptionProvider;\nvar templateObject_1;\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/contextProvider.js?");
+eval("\n\nvar __extends = undefined && undefined.__extends || function () {\n    var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {\n        d.__proto__ = b;\n    } || function (d, b) {\n        for (var p in b) {\n            if (b.hasOwnProperty(p)) d[p] = b[p];\n        }\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() {\n            this.constructor = d;\n        }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n}();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graphql_tag_1 = __webpack_require__(/*! graphql-tag */ \"./packages/gsox-client/node_modules/graphql-tag/src/index.js\");\nvar React = __webpack_require__(/*! react */ \"./packages/gsox-client/node_modules/react/index.js\");\nvar react_apollo_1 = __webpack_require__(/*! react-apollo */ \"./packages/gsox-client/node_modules/react-apollo/react-apollo.browser.umd.js\");\nvar react_apollo_2 = __webpack_require__(/*! react-apollo */ \"./packages/gsox-client/node_modules/react-apollo/react-apollo.browser.umd.js\");\nvar _1 = __webpack_require__(/*! ./ */ \"./packages/gsox-client/lib/index.js\");\nvar createSubscription_1 = __webpack_require__(/*! ./createSubscription */ \"./packages/gsox-client/lib/createSubscription.js\");\nvar ChannelProvider = /** @class */function (_super) {\n    __extends(ChannelProvider, _super);\n    function ChannelProvider() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    ChannelProvider.prototype.render = function () {\n        var _this = this;\n        console.log(this.props.inject);\n        console.log(createSubscription_1.createSubscription(this.props.inject));\n        var query = graphql_tag_1.default(createSubscription_1.createSubscription(this.props.inject));\n        var client = _1.createClient(this.props.inject).rawClient;\n        var children = function children() {\n            return _this.props.children;\n        };\n        return React.createElement(react_apollo_2.ApolloProvider, { client: client, children: React.createElement(react_apollo_1.Subscription, { subscription: query, children: children }) });\n    };\n    return ChannelProvider;\n}(React.Component);\nexports.ChannelProvider = ChannelProvider;\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/channelProvider.js?");
+
+/***/ }),
+
+/***/ "./packages/gsox-client/lib/constants.js":
+/*!***********************************************!*\
+  !*** ./packages/gsox-client/lib/constants.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.FIELD_SYMBOL = Symbol(\"gsoxField\");\nexports.TYPE_SYMBOL = Symbol(\"gsoxType\");\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/constants.js?");
 
 /***/ }),
 
@@ -761,7 +761,19 @@ eval("\n\nvar __extends = undefined && undefined.__extends || function () {\n   
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-client/node_modules/reflect-metadata/Reflect.js\");\nvar graphql_tag_1 = __webpack_require__(/*! graphql-tag */ \"./packages/gsox-client/node_modules/graphql-tag/src/index.js\");\nvar apollo_cache_inmemory_1 = __webpack_require__(/*! apollo-cache-inmemory */ \"./packages/gsox-client/node_modules/apollo-cache-inmemory/lib/index.js\");\nvar apollo_client_1 = __webpack_require__(/*! apollo-client */ \"./packages/gsox-client/node_modules/apollo-client/index.js\");\nvar apollo_link_1 = __webpack_require__(/*! apollo-link */ \"./packages/gsox-client/node_modules/apollo-link/lib/index.js\");\nvar apollo_link_ws_1 = __webpack_require__(/*! apollo-link-ws */ \"./packages/gsox-client/node_modules/apollo-link-ws/lib/index.js\");\nvar subscriptions_transport_ws_1 = __webpack_require__(/*! subscriptions-transport-ws */ \"./node_modules/subscriptions-transport-ws/dist/client.js\");\nvar schema_1 = __webpack_require__(/*! @gsox/schema */ \"./packages/gsox-schema/lib/index.js\");\nfunction createClient(options) {\n    var ws = options.ws,\n        host = options.host,\n        port = options.port,\n        routes = options.routes;\n    var GRAPHQL_ENDPOINT = \"ws://\" + host + \":\" + port + routes.graphql;\n    var wsClient = new subscriptions_transport_ws_1.SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws);\n    var wsLink = new apollo_link_ws_1.WebSocketLink(wsClient);\n    var client = new apollo_client_1.default({\n        cache: new apollo_cache_inmemory_1.InMemoryCache(),\n        connectToDevTools: true,\n        link: apollo_link_1.ApolloLink.from([wsLink]),\n        ssrForceFetchDelay: 100\n    });\n    return {\n        rawClient: client,\n        subscribe: function subscribe(T) {\n            return client.subscribe({\n                query: graphql_tag_1.default(schema_1.createSubscription(T))\n            });\n        }\n    };\n}\nexports.createClient = createClient;\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/createClient.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-client/node_modules/reflect-metadata/Reflect.js\");\nvar graphql_tag_1 = __webpack_require__(/*! graphql-tag */ \"./packages/gsox-client/node_modules/graphql-tag/src/index.js\");\nvar apollo_cache_inmemory_1 = __webpack_require__(/*! apollo-cache-inmemory */ \"./packages/gsox-client/node_modules/apollo-cache-inmemory/lib/index.js\");\nvar apollo_client_1 = __webpack_require__(/*! apollo-client */ \"./packages/gsox-client/node_modules/apollo-client/index.js\");\nvar apollo_link_1 = __webpack_require__(/*! apollo-link */ \"./packages/gsox-client/node_modules/apollo-link/lib/index.js\");\nvar apollo_link_ws_1 = __webpack_require__(/*! apollo-link-ws */ \"./packages/gsox-client/node_modules/apollo-link-ws/lib/index.js\");\nvar subscriptions_transport_ws_1 = __webpack_require__(/*! subscriptions-transport-ws */ \"./node_modules/subscriptions-transport-ws/dist/client.js\");\nvar createSubscription_1 = __webpack_require__(/*! ./createSubscription */ \"./packages/gsox-client/lib/createSubscription.js\");\nfunction createClient(options) {\n    var ws = options.ws,\n        host = options.host,\n        port = options.port,\n        routes = options.routes;\n    var GRAPHQL_ENDPOINT = \"ws://\" + host + \":\" + port + routes.graphql;\n    var wsClient = new subscriptions_transport_ws_1.SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws);\n    var wsLink = new apollo_link_ws_1.WebSocketLink(wsClient);\n    var client = new apollo_client_1.default({\n        cache: new apollo_cache_inmemory_1.InMemoryCache(),\n        connectToDevTools: true,\n        link: apollo_link_1.ApolloLink.from([wsLink]),\n        ssrForceFetchDelay: 100\n    });\n    return {\n        rawClient: client,\n        subscribe: function subscribe(T) {\n            return client.subscribe({\n                query: graphql_tag_1.default(createSubscription_1.createSubscription(T))\n            });\n        }\n    };\n}\nexports.createClient = createClient;\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/createClient.js?");
+
+/***/ }),
+
+/***/ "./packages/gsox-client/lib/createSubscription.js":
+/*!********************************************************!*\
+  !*** ./packages/gsox-client/lib/createSubscription.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-client/node_modules/reflect-metadata/Reflect.js\");\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./packages/gsox-client/lib/constants.js\");\nfunction createSubscription(T) {\n    var obj = new T();\n    var type = Reflect.get(obj, constants_1.TYPE_SYMBOL);\n    var schema = \"subscription {\\n\\t\" + type + \" {\\n\";\n    var metadata = Reflect.getMetadata(constants_1.FIELD_SYMBOL, obj);\n    metadata.forEach(function (field) {\n        schema += \"\\t\\t\" + field.name + \"\\n\";\n    });\n    schema += \"\\t}\\n}\";\n    return schema;\n}\nexports.createSubscription = createSubscription;\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/createSubscription.js?");
 
 /***/ }),
 
@@ -773,7 +785,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__we
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./client */ \"./packages/gsox-client/lib/client.js\"));\n__export(__webpack_require__(/*! ./createClient */ \"./packages/gsox-client/lib/createClient.js\"));\n__export(__webpack_require__(/*! ./contextProvider */ \"./packages/gsox-client/lib/contextProvider.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/index.js?");
+eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./createClient */ \"./packages/gsox-client/lib/createClient.js\"));\n__export(__webpack_require__(/*! ./channelProvider */ \"./packages/gsox-client/lib/channelProvider.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-client/lib/index.js?");
 
 /***/ }),
 
@@ -2380,18 +2392,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__we
 
 /***/ }),
 
-/***/ "./packages/gsox-schema/lib/createSubscription.js":
-/*!********************************************************!*\
-  !*** ./packages/gsox-schema/lib/createSubscription.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-schema/node_modules/reflect-metadata/Reflect.js\");\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./packages/gsox-schema/lib/constants.js\");\nfunction createSubscription(T) {\n    var obj = new T();\n    var type = Reflect.get(obj, constants_1.TYPE_SYMBOL);\n    var schema = \"subscription {\\n\\t\" + type + \" {\\n\";\n    var metadata = Reflect.getMetadata(constants_1.FIELD_SYMBOL, obj);\n    metadata.forEach(function (field) {\n        schema += \"\\t\\t\" + field.name + \"\\n\";\n    });\n    schema += \"\\t}\\n}\";\n    return schema;\n}\nexports.createSubscription = createSubscription;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/createSubscription.js?");
-
-/***/ }),
-
 /***/ "./packages/gsox-schema/lib/createSubscriptionTypeDef.js":
 /*!***************************************************************!*\
   !*** ./packages/gsox-schema/lib/createSubscriptionTypeDef.js ***!
@@ -2436,19 +2436,7 @@ eval("\n\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./decorators */ \"./packages/gsox-schema/lib/decorators.js\"));\n__export(__webpack_require__(/*! ./createTypeDef */ \"./packages/gsox-schema/lib/createTypeDef.js\"));\n__export(__webpack_require__(/*! ./subscription */ \"./packages/gsox-schema/lib/subscription.js\"));\n__export(__webpack_require__(/*! ./createSubscription */ \"./packages/gsox-schema/lib/createSubscription.js\"));\n__export(__webpack_require__(/*! ./createSchema */ \"./packages/gsox-schema/lib/createSchema.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/index.js?");
-
-/***/ }),
-
-/***/ "./packages/gsox-schema/lib/subscription.js":
-/*!**************************************************!*\
-  !*** ./packages/gsox-schema/lib/subscription.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-schema/node_modules/reflect-metadata/Reflect.js\");\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./packages/gsox-schema/lib/constants.js\");\nfunction subscription(obj) {\n    var type = Reflect.get(obj, constants_1.TYPE_SYMBOL);\n    var schema = \"subscription {\\n\\t\" + type + \" {\\n\";\n    var metadata = Reflect.getMetadata(constants_1.FIELD_SYMBOL, obj);\n    metadata.forEach(function (field) {\n        schema += \"\\t\\t\" + field.name + \"\\n\";\n    });\n    schema += \"\\t}\\n}\";\n    return schema;\n}\nexports.subscription = subscription;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/subscription.js?");
+eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./decorators */ \"./packages/gsox-schema/lib/decorators.js\"));\n__export(__webpack_require__(/*! ./createSchema */ \"./packages/gsox-schema/lib/createSchema.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/index.js?");
 
 /***/ }),
 

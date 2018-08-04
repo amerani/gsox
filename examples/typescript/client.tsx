@@ -4,7 +4,7 @@ import { ChannelProvider } from "@gsox/client";
 import { Ping } from "./types";
 
 ReactDOM.render(
-      <ChannelProvider inject={new Ping()}>
+      <ChannelProvider inject={Ping}>
             {({loading, data, error}) => {
                   if(loading) console.log("loading")
                   if(error) console.log("error", error)

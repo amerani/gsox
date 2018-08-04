@@ -1,0 +1,16 @@
+{
+      "compilerOptions": {
+          "module": "commonjs",
+          "target": "es5",
+          "moduleResolution": "node",
+          "outDir": "lib",
+          "sourceMap": true,
+          "lib": [
+              "esnext",
+              "dom"
+            ],
+          "emitDecoratorMetadata": true,
+          "experimentalDecorators": true,
+          "jsx": "react"
+      }
+  }
