@@ -6,19 +6,14 @@ import { createServer } from "../packages/gsox-server";
 import { Notification } from "./Notification";
 import { Ping } from "./Ping";
 
-const host = "localhost";
 const port = 5000;
-const routes = {
-      graphql: "/graphql",
-      webhook: "/webhook",
-};
 const inject = [Ping, Notification];
 let server;
 let client;
 beforeAll(() => {
       const app = express();
-      server = createServer(app, { host, port, routes, inject });
-      client = createClient({ host, port, routes });
+      server = createServer(app, { port, inject });
+      client = createClient({ port });
 });
 
 afterAll(() => {
@@ -59,12 +54,12 @@ test("should subscribe", (done) => {
 
       setTimeout(() => {
             const req = http.request({
-                  hostname: host, port,
+                  hostname: "localhost", port,
                   method: "POST",
                   headers: {
                         "Content-Type": "application/json",
                   },
-                  path: routes.webhook,
+                  path: "/gsox/webhook",
             });
             req.write(Buffer.from(JSON.stringify(testData)));
             req.end();

@@ -21,8 +21,9 @@ export function createServer(app, options) {
       });
 
       // init apollo server
-      const server = new ApolloServer({schema});
-      server.applyMiddleware({ app });
+      const path = routes.graphql;
+      const server = new ApolloServer({ schema });
+      server.applyMiddleware({ app, path });
 
       // setup websockets endpoint
       const ws = http(app);

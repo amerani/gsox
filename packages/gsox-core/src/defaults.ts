@@ -3,8 +3,8 @@ const host = "localhost";
 const port = 13000;
 
 const routes = {
-      graphql: "/graphql",
-      webhook: "/webhook",
+      graphql: "/gsox/graphql",
+      webhook: "/gsox/webhook",
 };
 
 export { host, port, routes };
