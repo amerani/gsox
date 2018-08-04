@@ -1,0 +1,19 @@
+{
+      "compilerOptions": {
+          "module": "commonjs",
+          "target": "es5",
+          "moduleResolution": "node",
+          "outDir": "lib",
+          "rootDir": "./src",
+          "lib": [
+            "esnext",
+            "dom"
+          ],
+          "experimentalDecorators": true,
+          "jsx": "react"
+      },
+      "types": ["node"],
+      "exclude": [
+          "**/*.test.ts"
+      ],
+}
