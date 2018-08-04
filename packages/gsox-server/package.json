@@ -1,6 +1,6 @@
 {
   "name": "@gsox/server",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "author": "Alek Merani",
   "license": "MIT",
   "main": "lib/index.js",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@gsox/core": "^0.1.15",
-    "@gsox/schema": "^0.1.15",
+    "@gsox/schema": "^0.1.16",
     "@types/graphql": "^0.13.3",
     "apollo-server-express": "^2.0.0",
     "body-parser": "^1.18.3",

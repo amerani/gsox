@@ -1,13 +1,13 @@
 {
   "name": "@gsox/hello-world",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "main": "index.js",
   "author": "Alek Merani",
   "license": "MIT",
   "dependencies": {
-    "@gsox/client": "^0.1.15",
-    "@gsox/schema": "^0.1.15",
-    "@gsox/server": "^0.1.15"
+    "@gsox/client": "^0.1.16",
+    "@gsox/schema": "^0.1.16",
+    "@gsox/server": "^0.1.16"
   },
   "publishConfig": {
     "access": "public"
