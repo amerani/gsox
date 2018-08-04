@@ -35,35 +35,3 @@ test("should ping", (done) => {
             },
       });
 });
-
-test("should subscribe", (done) => {
-      const testData = {
-            Notification: {
-                  type: "test_email",
-                  id: 99,
-            },
-            typeName: "Notification",
-      };
-      client
-      .subscribe(Notification)
-      .subscribe({
-            next({data}) {
-                  expect(data.Notification.id).toBe(testData.Notification.id);
-                  done();
-            },
-            error(e) { expect(e).toBeNull(); done(); },
-      });
-
-      setTimeout(() => {
-            const req = http.request({
-                  hostname: "localhost", port,
-                  method: "POST",
-                  headers: {
-                        "Content-Type": "application/json",
-                  },
-                  path: "/gsox/webhook",
-            });
-            req.write(Buffer.from(JSON.stringify(testData)));
-            req.end();
-      }, 1000);
-}, 20000);
