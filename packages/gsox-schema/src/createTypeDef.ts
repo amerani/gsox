@@ -1,5 +1,5 @@
-import "reflect-metadata";
 import { FIELD_SYMBOL, TYPE_SYMBOL } from "@gsox/core";
+import "reflect-metadata";
 
 function createTypeDef(T): string {
       const obj = new T();

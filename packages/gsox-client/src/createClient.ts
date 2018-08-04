@@ -1,3 +1,4 @@
+import { defaults } from "@gsox/core";
 import { createSubscription } from "@gsox/schema";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import ApolloClient from "apollo-client";
@@ -6,7 +7,6 @@ import { WebSocketLink } from "apollo-link-ws";
 import gql from "graphql-tag";
 import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
-import { defaults } from "@gsox/core";
 
 function createClient(options) {
       const curOptions = {...defaults, ...options};

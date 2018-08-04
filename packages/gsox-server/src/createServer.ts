@@ -1,3 +1,4 @@
+import { defaults } from "@gsox/core";
 import { ApolloServer } from "apollo-server-express";
 import * as bodyParser from "body-parser";
 import { execute, subscribe } from "graphql";
@@ -7,10 +8,9 @@ import { SubscriptionServer } from "subscriptions-transport-ws";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 import { buildSchema } from "./schemaBuilder";
-import { defaults } from "@gsox/core";
 
 export function createServer(app, options) {
-      const curOpt = {...defaults, ...options}
+      const curOpt = {...defaults, ...options};
       const { host, port, routes, inject } = curOpt;
       const schema = buildSchema(inject);
 

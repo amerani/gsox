@@ -1,5 +1,6 @@
 import "reflect-metadata";
-import { createSubscription, Field, subscription, Type } from "../src";
+import { Field, Type } from "../src";
+import { createSubscription } from "../src/createSubscription";
 
 @Type("message")
 class Message {
@@ -18,11 +19,6 @@ class Message {
 
 let message: Message;
 beforeAll(() => message = new Message());
-
-test("should output subscription", () => {
-      const sub = subscription(message);
-      console.log(sub);
-});
 
 test("should output subscription", () => {
       const sub = createSubscription(Message);
