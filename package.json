@@ -12,7 +12,8 @@
     "lint": "tslint **/src/**/*.ts **/__tests__/**/*.ts",
     "publish": "yarn run rebuild && lerna publish",
     "serve": "concurrently \"node examples/hello-world/server.js\" \"webpack-dev-server --config examples/hello-world/webpack.config.js\"",
-    "link": "lerna link"
+    "link": "lerna link",
+    "serve-ts": "wp --config ./examples/typescript/webpack.config.js && ts-node ./examples/typescript/server.ts"
   },
   "author": "Alek Merani",
   "license": "MIT",
@@ -48,6 +49,7 @@
     "rimraf": "^2.6.2",
     "subscriptions-transport-ws": "^0.9.12",
     "ts-jest": "^23.0.0",
+    "ts-loader": "^4.4.2",
     "ts-node": "^7.0.0",
     "tslint": "^5.10.0",
     "tslint-react": "^3.6.0",

@@ -2,7 +2,6 @@ import gql from "graphql-tag";
 import * as React from "react";
 import { Subscription, SubscriptionResult } from "react-apollo";
 import { ApolloProvider } from 'react-apollo';
-import { client } from './client';
 import { subscription } from '@gsox/schema';
 
 const children = (result: SubscriptionResult<any> ): React.ReactNode => {
@@ -18,7 +17,7 @@ class SubscriptionProvider extends React.Component<any, any> {
     const query = gql`${subscription(this.props.inject)}`;
     return (
       <ApolloProvider
-        client={client(this.props.ws)}
+        client={this.props.client}
         children={
           <Subscription
           subscription={query}
