@@ -19,8 +19,8 @@ class Message {
 
 @Type()
 class Test {
-      @Field('Int')
-      id: any
+      @Field("Int")
+      public id: any;
 }
 
 let message: Message;
@@ -30,7 +30,6 @@ test("should create one typedef", () => {
       const sub = createTypeDef(Message);
       expect(sub).toMatchSnapshot();
 });
-
 
 test("should create many typedefs", () => {
       const sub = createTypeDefs([Message, Test]);

@@ -1,5 +1,5 @@
 import pingResolver from "../src/pingResolver";
 
-test('should create server', () => {
+test("should create server", () => {
       expect(pingResolver).toMatchSnapshot();
-})
+});

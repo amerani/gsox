@@ -1,17 +1,17 @@
-import { createServer } from "../src/createServer";
+import { Field, Type } from "@gsox/schema";
 import * as express from "express";
-import { Type, Field } from "@gsox/schema";
+import { createServer } from "../src/createServer";
 
 @Type()
 class Test {
-      @Field('String')
-      success: boolean
+      @Field("String")
+      public success: boolean;
 }
 
-test('should create server', () => {
+test("should create server", () => {
       expect(createServer(express(), { host: "localhsot", port: 5000, inject: [Test] })).toMatchSnapshot();
-})
+});
 
-test('should throw when not injected', () => {
+test("should throw when not injected", () => {
       expect(() => createServer(express(), {})).toThrow();
-})
+});
