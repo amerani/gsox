@@ -5,7 +5,7 @@ import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
 import { SubscriptionClient } from "subscriptions-transport-ws";
-import { typeSub } from "@gsox/schema";
+import { createSubscription } from "@gsox/schema";
 
 function createClient(options) {
       const { ws, host, port, routes } = options;
@@ -24,7 +24,7 @@ function createClient(options) {
       return {
             rawClient: client,
             subscribe: (T) => client.subscribe({
-                  query: gql(typeSub(T))
+                  query: gql(createSubscription(T))
             })
       }
 }

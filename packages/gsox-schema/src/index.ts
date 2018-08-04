@@ -1,4 +1,4 @@
 export * from "./decorators";
-export * from "./typeDef";
+export * from "./createTypeDef";
 export * from "./subscription";
-export * from "./typeSub";
+export * from "./createSubscription";

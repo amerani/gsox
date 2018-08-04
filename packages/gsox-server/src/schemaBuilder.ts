@@ -1,4 +1,4 @@
-import { Field, Type, typeDef } from "@gsox/schema";
+import { Field, Type, createTypeDef } from "@gsox/schema";
 import { gql } from "apollo-server-express";
 import { withFilter } from "graphql-subscriptions";
 import { makeExecutableSchema } from "graphql-tools";
@@ -22,8 +22,8 @@ class Notification {
       public data: string;
 }
 
-const ping = typeDef(new Ping());
-const not = typeDef(new Notification());
+const ping = createTypeDef(new Ping());
+const not = createTypeDef(new Notification());
 
 const typeDefs = gql`
       type Subscription {
