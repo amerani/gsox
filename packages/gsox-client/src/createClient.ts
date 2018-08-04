@@ -6,9 +6,11 @@ import { WebSocketLink } from "apollo-link-ws";
 import gql from "graphql-tag";
 import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
+import * as defaults from "./defaults";
 
 function createClient(options) {
-      const { ws, host, port, routes } = options;
+      const curOptions = {...defaults, ...options};
+      const { ws, host, port, routes } = curOptions;
       const GRAPHQL_ENDPOINT = `ws://${host}:${port}${routes.graphql}`;
       const wsClient = new SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws);
 

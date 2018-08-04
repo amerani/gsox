@@ -5,13 +5,10 @@ import { Ping } from "./types";
 
 const host = "localhost";
 const port = 5000;
-const routes = {
-      graphql: "/graphql",
-      webhook: "/webhook"
-}
+
 const inject = [Ping, Notification];
 
-const client = createClient({ host, port, routes, inject }).rawClient;
+const client = createClient({ host, port, inject }).rawClient;
 
 ReactDOM.render(
       <DataProvider inject={new Ping()} client={client}>
