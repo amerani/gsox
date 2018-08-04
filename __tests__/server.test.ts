@@ -14,6 +14,7 @@ beforeAll(() => {
       const app = express();
       server = createServer(app, { port, inject });
       client = createClient({ port });
+      server.listen(() => "Server ready");
 });
 
 afterAll(() => {

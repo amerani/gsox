@@ -16,7 +16,19 @@ class Notification {
       timestamp: string;
 }
 
+@Type()
+class Alert {
+      @Field('Int')
+      id:number;
+      @Field()
+      message: string;
+      @Field()
+      severity: string;
+      @Field()
+      timestamp: string;
+}
+
 export {
-      Ping, Notification
+      Ping, Notification, Alert
 }
 

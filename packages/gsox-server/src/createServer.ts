@@ -12,6 +12,8 @@ import { buildSchema } from "./schemaBuilder";
 export function createServer(app, options) {
       const curOpt = {...defaults, ...options};
       const { host, port, routes, inject } = curOpt;
+
+      // build schema from types
       const schema = buildSchema(inject);
 
       // add webhook endpoint
@@ -22,24 +24,22 @@ export function createServer(app, options) {
 
       // init apollo server
       const path = routes.graphql;
-      const server = new ApolloServer({ schema });
-      server.applyMiddleware({ app, path });
+      const apollo = new ApolloServer({ schema });
+      apollo.applyMiddleware({ app, path });
 
-      // setup websockets endpoint
-      const ws = http(app);
-
-      ws.listen({ host, port }, () => {
-            // tslint:disable-next-line:no-console
-            console.log(`🚀 Server ready at http://${host}:${port}${server.graphqlPath}`);
-
-      });
+      // init subscription websocket
+      const server = http(app);
       SubscriptionServer.create({
-            execute,
-            schema,
-            subscribe,
-      }, {
-            path: routes.graphql,
-            server: ws,
-      });
-      return ws;
+            execute, schema, subscribe,
+      }, {  path, server });
+
+      return {
+            apollo,
+            server,
+            host,
+            port,
+            routes,
+            listen: (listener) => server.listen({ host, port }, listener),
+            close: () => server.close(),
+      };
 }
