@@ -2,9 +2,9 @@ import * as express from "express";
 import * as http from "http";
 import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
+import { Ping } from "../packages/gsox-schema";
 import { createServer } from "../packages/gsox-server";
 import { Notification } from "./Notification";
-import { Ping } from "../packages/gsox-schema";
 
 const port = 5000;
 const inject = [Notification];
@@ -42,7 +42,7 @@ test("should subscribe", (done) => {
                   type: "test_email",
                   id: 99,
             },
-            typeName: "Notification"
+            typeName: "Notification",
       };
       client
       .subscribe(Notification)

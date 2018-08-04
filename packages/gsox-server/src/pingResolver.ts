@@ -1,5 +1,5 @@
+import { IResolverObject, IResolvers } from "../node_modules/graphql-tools";
 import { pubSub } from "./pubSubProvider";
-import { IResolvers, IResolverObject } from "../node_modules/graphql-tools";
 
 const pingSubscribe: IResolverObject = {
       subscribe() {
@@ -11,7 +11,7 @@ const pingSubscribe: IResolverObject = {
 };
 
 const pingResolver: IResolvers<any, any> = {
-      Ping: pingSubscribe
-}
+      Ping: pingSubscribe,
+};
 
 export default pingResolver;
