@@ -1,12 +1,6 @@
 import { Type, Field } from '@gsox/schema';
 
 @Type()
-class Ping {
-    @Field('Int')
-    id
-}
-
-@Type()
 class Notification {
       @Field('Int')
       id:number;
@@ -29,6 +23,6 @@ class Alert {
 }
 
 export {
-      Ping, Notification, Alert
+      Notification, Alert
 }
 

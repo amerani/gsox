@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom"
 import { DataProvider, createClient } from "@gsox/client";
-import { Ping } from "./types";
+import { Ping } from "@gsox/schema";
 import { routes } from "./config";
 
 const client = createClient({ routes }).rawClient;

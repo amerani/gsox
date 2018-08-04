@@ -2380,6 +2380,18 @@ eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.h
 
 /***/ }),
 
+/***/ "./packages/gsox-schema/lib/Ping.js":
+/*!******************************************!*\
+  !*** ./packages/gsox-schema/lib/Ping.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; };\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {\n    var c = arguments.length,\n        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,\n        d;\n    if ((typeof Reflect === \"undefined\" ? \"undefined\" : _typeof(Reflect)) === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {\n        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    }return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\nvar __metadata = undefined && undefined.__metadata || function (k, v) {\n    if ((typeof Reflect === \"undefined\" ? \"undefined\" : _typeof(Reflect)) === \"object\" && typeof Reflect.metadata === \"function\") return Reflect.metadata(k, v);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar _1 = __webpack_require__(/*! ./ */ \"./packages/gsox-schema/lib/index.js\");\nvar Ping = function Ping() {\n    _classCallCheck(this, Ping);\n};\n__decorate([_1.Field(\"Int\"), __metadata(\"design:type\", Number)], Ping.prototype, \"id\", void 0);\nPing = __decorate([_1.Type()], Ping);\nexports.Ping = Ping;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/Ping.js?");
+
+/***/ }),
+
 /***/ "./packages/gsox-schema/lib/createSchema.js":
 /*!**************************************************!*\
   !*** ./packages/gsox-schema/lib/createSchema.js ***!
@@ -2388,7 +2400,7 @@ eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.h
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graphql_tag_1 = __webpack_require__(/*! graphql-tag */ \"./node_modules/graphql-tag/src/index.js\");\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-schema/node_modules/reflect-metadata/Reflect.js\");\nvar createSubscriptionTypeDef_1 = __webpack_require__(/*! ./createSubscriptionTypeDef */ \"./packages/gsox-schema/lib/createSubscriptionTypeDef.js\");\nvar createTypeDef_1 = __webpack_require__(/*! ./createTypeDef */ \"./packages/gsox-schema/lib/createTypeDef.js\");\nvar rootSchema = \"\\n      type Query {\\n            hello: String\\n      }\\n      type schema {\\n            subscription: Subscription\\n            query: Query\\n      }\\n\";\nfunction createTypeDefString(types) {\n      return \"\\n            \" + createSubscriptionTypeDef_1.createSubscriptionType(types) + \" \\n\\n            \" + createTypeDef_1.createTypeDefs(types) + \"\\n      \";\n}\nfunction createSchemaString(types) {\n      return \"\\n            \" + rootSchema + \" \\n\\n            \" + createTypeDefString(types) + \"\\n      \";\n}\nexports.createSchemaString = createSchemaString;\nfunction createSchema(types) {\n      return graphql_tag_1.default(createSchemaString(types));\n}\nexports.createSchema = createSchema;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/createSchema.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graphql_tag_1 = __webpack_require__(/*! graphql-tag */ \"./node_modules/graphql-tag/src/index.js\");\n__webpack_require__(/*! reflect-metadata */ \"./packages/gsox-schema/node_modules/reflect-metadata/Reflect.js\");\nvar createSubscriptionTypeDef_1 = __webpack_require__(/*! ./createSubscriptionTypeDef */ \"./packages/gsox-schema/lib/createSubscriptionTypeDef.js\");\nvar createTypeDef_1 = __webpack_require__(/*! ./createTypeDef */ \"./packages/gsox-schema/lib/createTypeDef.js\");\nvar rootSchema = \"\\n      type Query {\\n            hello: String\\n      }\\n      type schema {\\n            subscription: Subscription\\n            query: Query\\n      }\\n      type Ping {\\n            id: Int\\n      }\\n      type Subscription {\\n            Ping: Ping\\n      }\\n\";\nfunction createTypeDefString(types) {\n      return \"\\n            \" + createSubscriptionTypeDef_1.createSubscriptionType(types) + \" \\n\\n            \" + createTypeDef_1.createTypeDefs(types) + \"\\n      \";\n}\nfunction createSchemaString(types) {\n      return \"\\n            \" + rootSchema + \" \\n\\n            \" + createTypeDefString(types) + \"\\n      \";\n}\nexports.createSchemaString = createSchemaString;\nfunction createSchema(types) {\n      return graphql_tag_1.default(createSchemaString(types));\n}\nexports.createSchema = createSchema;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/createSchema.js?");
 
 /***/ }),
 
@@ -2412,7 +2424,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar core_1 = __webpack_require__(/*! @gsox/core */ \"./packages/gsox-core/lib/index.js\");\nfunction createSubscriptionType(types) {\n    var typeNames = types.map(function (type) {\n        return new type();\n    }).map(function (instance) {\n        return Reflect.get(instance, core_1.TYPE_SYMBOL);\n    });\n    var result = \"type Subscription {\\n\";\n    typeNames.forEach(function (typeName) {\n        result = result.concat(typeName + \":\" + typeName + \"\\n\");\n    });\n    result = result.concat(\"}\");\n    return result;\n}\nexports.createSubscriptionType = createSubscriptionType;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/createSubscriptionTypeDef.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar core_1 = __webpack_require__(/*! @gsox/core */ \"./packages/gsox-core/lib/index.js\");\nfunction createSubscriptionType(types) {\n    var typeNames = types.map(function (type) {\n        return new type();\n    }).map(function (instance) {\n        return Reflect.get(instance, core_1.TYPE_SYMBOL);\n    });\n    var result = \"extend type Subscription {\\n\";\n    typeNames.forEach(function (typeName) {\n        result = result.concat(typeName + \":\" + typeName + \"\\n\");\n    });\n    result = result.concat(\"}\");\n    return result;\n}\nexports.createSubscriptionType = createSubscriptionType;\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/createSubscriptionTypeDef.js?");
 
 /***/ }),
 
@@ -2448,7 +2460,7 @@ eval("\n\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./decorators */ \"./packages/gsox-schema/lib/decorators.js\"));\n__export(__webpack_require__(/*! ./createSchema */ \"./packages/gsox-schema/lib/createSchema.js\"));\n__export(__webpack_require__(/*! ./createSubscription */ \"./packages/gsox-schema/lib/createSubscription.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/index.js?");
+eval("\n\nfunction __export(m) {\n    for (var p in m) {\n        if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n    }\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./decorators */ \"./packages/gsox-schema/lib/decorators.js\"));\n__export(__webpack_require__(/*! ./createSchema */ \"./packages/gsox-schema/lib/createSchema.js\"));\n__export(__webpack_require__(/*! ./createSubscription */ \"./packages/gsox-schema/lib/createSubscription.js\"));\n__export(__webpack_require__(/*! ./Ping */ \"./packages/gsox-schema/lib/Ping.js\"));\n\n//# sourceURL=webpack:///./packages/gsox-schema/lib/index.js?");
 
 /***/ }),
 

@@ -4,7 +4,7 @@ import { buildResolvers } from "./buildResolvers";
 
 function buildSchema(types) {
       const typeDefs = createSchema(types);
-      const resolvers = buildResolvers();
+      const resolvers = buildResolvers(types);
       const schema = makeExecutableSchema({typeDefs, resolvers});
       return schema;
 }

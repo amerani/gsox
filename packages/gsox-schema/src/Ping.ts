@@ -1,4 +1,4 @@
-import { Field, Type } from "../packages/gsox-schema";
+import { Field, Type } from "./";
 
 @Type()
 class Ping {

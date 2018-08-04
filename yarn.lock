@@ -149,6 +149,10 @@
     react-apollo-graphql "^1.0.2"
     ws "^6.0.0"
 
+"@gsox/core@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@gsox/core/-/core-0.1.15.tgz#b0b8a2122d2f79fde4cd4eb63e9da2ef6ef92a80"
+
 "@gsox/schema@^0.1.6":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.6.tgz#e2e54dbb1631f874bafa7ef7ba8ae81349c1252d"

@@ -1,32 +1,26 @@
-import { withFilter } from "graphql-subscriptions";
 import "reflect-metadata";
-import { NOTIFICATION_TOPIC } from "./constants";
+import { withFilter } from "graphql-subscriptions";
 import { pubSub } from "./pubSubProvider";
+import { TYPE_SYMBOL } from "@gsox/core";
+import pingResolver from "./pingResolver";
+import { IResolvers } from "../node_modules/graphql-tools";
 
-function buildResolvers() {
-      return {
-            Subscription: {
-                ["Notification"]: {
-                      subscribe: withFilter(
-                            () => pubSub.asyncIterator(NOTIFICATION_TOPIC),
-                            (payload) => {
-                                  if (!payload) { return false; }
-                                  const notification = payload.Notification;
-                                  // return notification.id === id;
-                                  return true;
-                            },
-                      ),
-                },
-                Ping: {
-                      subscribe: () => {
-                            setInterval(() => pubSub.publish("test", {
-                                Ping: { id: 0 },
-                            }), 2000);
-                            return pubSub.asyncIterator("test");
-                      },
-                },
-            },
-          };
+function buildResolvers(types): IResolvers<any,any> {
+      let resolvers = types.map(type => {
+            const obj = new type();
+            const typeName = Reflect.get(obj, TYPE_SYMBOL);
+            const resolver:IResolvers<any,any> = {
+                  [typeName]: {
+                        subscribe: withFilter(
+                              () => pubSub.asyncIterator(`TOPIC_${typeName}`),
+                              (payload, variables) => true
+                        )
+                  }
+            }
+            return resolver;
+      });
+      resolvers = resolvers.reduce((acc, cur) => ({...acc, ...cur}), { ...pingResolver });
+      return { Subscription: resolvers };
 }
 
 export { buildResolvers };

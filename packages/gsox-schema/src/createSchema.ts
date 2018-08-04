@@ -11,6 +11,12 @@ const rootSchema = `
             subscription: Subscription
             query: Query
       }
+      type Ping {
+            id: Int
+      }
+      type Subscription {
+            Ping: Ping
+      }
 `;
 function createTypeDefString(types) {
       return `

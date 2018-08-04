@@ -4,10 +4,10 @@ import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
 import { createServer } from "../packages/gsox-server";
 import { Notification } from "./Notification";
-import { Ping } from "./Ping";
+import { Ping } from "../packages/gsox-schema";
 
 const port = 5000;
-const inject = [Ping, Notification];
+const inject = [Notification];
 let server;
 let client;
 beforeAll(() => {
@@ -42,6 +42,7 @@ test("should subscribe", (done) => {
                   type: "test_email",
                   id: 99,
             },
+            typeName: "Notification"
       };
       client
       .subscribe(Notification)

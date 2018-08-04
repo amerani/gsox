@@ -5,7 +5,6 @@ import { execute, subscribe } from "graphql";
 import { createServer as http } from "http";
 import "reflect-metadata";
 import { SubscriptionServer } from "subscriptions-transport-ws";
-import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 import { buildSchema } from "./schemaBuilder";
 
@@ -18,7 +17,8 @@ export function createServer(app, options) {
 
       // add webhook endpoint
       app.post(routes.webhook, bodyParser.json(), (req, res) => {
-            pubSub.publish(NOTIFICATION_TOPIC, req.body);
+            const { typeName } = req.body;
+            pubSub.publish(`TOPIC_${typeName}`, req.body);
             return res.sendStatus(200);
       });
 
