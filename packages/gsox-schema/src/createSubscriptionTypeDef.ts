@@ -1,4 +1,4 @@
-import { TYPE_SYMBOL } from "./constants";
+import { TYPE_SYMBOL } from "@gsox/core";
 
 function createSubscriptionType(types) {
       const typeNames = types

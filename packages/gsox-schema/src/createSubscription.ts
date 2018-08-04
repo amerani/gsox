@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { FIELD_SYMBOL, TYPE_SYMBOL } from "./constants";
+import { FIELD_SYMBOL, TYPE_SYMBOL } from "@gsox/core";
 
 function createSubscription(T): string {
       const obj = new T();

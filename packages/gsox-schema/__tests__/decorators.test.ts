@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { FIELD_SYMBOL, TYPE_SYMBOL } from "../src/constants";
+import { FIELD_SYMBOL, TYPE_SYMBOL } from "@gsox/core";
 import { Field, Type } from "../src/decorators";
 
 @Type()

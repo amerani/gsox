@@ -3,12 +3,12 @@ import * as React from "react";
 import { Subscription } from "react-apollo";
 import { ApolloProvider } from 'react-apollo';
 import { subscription } from '@gsox/schema';
-// import { host, port, routes } from "@gsox/core";
+import { host, port, routes } from "@gsox/core";
 import { createClient } from "./";
 
 function getClient(props):any {
   if(props.client) return props.client;
-  // return createClient({host, port, routes}).rawClient;
+  return createClient({host, port, routes}).rawClient;
 }
 
 class SubscriptionProvider extends React.Component<any, any> {

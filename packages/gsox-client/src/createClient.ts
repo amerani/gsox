@@ -6,7 +6,7 @@ import { WebSocketLink } from "apollo-link-ws";
 import gql from "graphql-tag";
 import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
-import * as defaults from "./defaults";
+import { defaults } from "@gsox/core";
 
 function createClient(options) {
       const curOptions = {...defaults, ...options};

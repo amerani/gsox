@@ -7,10 +7,10 @@ import { SubscriptionServer } from "subscriptions-transport-ws";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 import { buildSchema } from "./schemaBuilder";
-// import { defaults } from "@gsox/core";
+import { defaults } from "@gsox/core";
 
 export function createServer(app, options) {
-      const curOpt = {...options};
+      const curOpt = {...defaults, ...options}
       const { host, port, routes, inject } = curOpt;
       const schema = buildSchema(inject);
 

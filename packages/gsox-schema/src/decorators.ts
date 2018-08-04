@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { FIELD_SYMBOL, TYPE_SYMBOL } from "./constants";
+import { FIELD_SYMBOL, TYPE_SYMBOL } from "@gsox/core";
 
 function Type(value?) {
       return function classDecorator<T extends {new(...args: any[]): {}}>(constructor: T) {
