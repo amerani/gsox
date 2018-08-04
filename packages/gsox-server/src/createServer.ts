@@ -6,10 +6,11 @@ import "reflect-metadata";
 import { SubscriptionServer } from "subscriptions-transport-ws";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
-import { schema } from "./schemaBuilder";
+import { buildSchema } from "./schemaBuilder";
 
 export function createServer(app, options) {
-      const { host, port, routes } = options;
+      const { host, port, routes, inject } = options;
+      const schema = buildSchema(inject);
 
       //add webhook endpoint
       app.post(routes.webhook, bodyParser.json(), (req, res) => {
