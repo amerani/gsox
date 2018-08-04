@@ -6,9 +6,11 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc -d",
-    "clean": "rimraf lib"
+    "clean": "rimraf lib",
+    "nuke": "rimraf lib && rm -rf node_modules"
   },
   "dependencies": {
+    "@gsox/core": "^0.1.13",
     "@gsox/schema": "^0.1.12",
     "@types/graphql": "^0.13.3",
     "apollo-server-express": "^2.0.0",

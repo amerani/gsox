@@ -13,9 +13,13 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@gsox/schema@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.7.tgz#8b1234c08ee3cf7e6e7dd408c3c3beda8898b15f"
+"@gsox/core@^0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@gsox/core/-/core-0.1.13.tgz#f12cfd57acfaa0494c89ab24be02422878c5467f"
+
+"@gsox/schema@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.12.tgz#5ef2578b6c73ab956f57c22c5cd6314cb961cb72"
   dependencies:
     reflect-metadata "^0.1.12"
 

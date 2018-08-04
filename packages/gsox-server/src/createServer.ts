@@ -7,9 +7,11 @@ import { SubscriptionServer } from "subscriptions-transport-ws";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 import { buildSchema } from "./schemaBuilder";
+// import { defaults } from "@gsox/core";
 
 export function createServer(app, options) {
-      const { host, port, routes, inject } = options;
+      const curOpt = {...options};
+      const { host, port, routes, inject } = curOpt;
       const schema = buildSchema(inject);
 
       // add webhook endpoint
@@ -27,7 +29,7 @@ export function createServer(app, options) {
 
       ws.listen({ host, port }, () => {
             // tslint:disable-next-line:no-console
-            console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
+            console.log(`🚀 Server ready at http://${host}:${port}${server.graphqlPath}`);
 
       });
       SubscriptionServer.create({

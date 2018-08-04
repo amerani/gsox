@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc -d",
-    "clean": "rimraf lib"
+    "clean": "rimraf lib",
+    "nuke": "rimraf lib && rm -rf node_modules"
   },
   "author": "Alek Merani",
   "license": "MIT",
@@ -13,6 +14,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@gsox/core": "^0.1.13",
     "@gsox/schema": "^0.1.12",
     "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",

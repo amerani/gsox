@@ -6,9 +6,11 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -d",
-    "clean": "rimraf lib"
+    "clean": "rimraf lib",
+    "nuke": "rimraf lib && rm -rf node_modules"
   },
   "dependencies": {
+    "@gsox/core": "^0.1.13",
     "reflect-metadata": "^0.1.12"
   },
   "directories": {

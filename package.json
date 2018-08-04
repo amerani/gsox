@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "lerna run build",
+    "nuke": "lerna run --parallel nuke",
     "clean": "lerna run --parallel clean",
     "rebuild": "yarn run clean && yarn run build && wp --config ./examples/hello-world/webpack.config.js",
     "bootstrap": "lerna bootstrap",

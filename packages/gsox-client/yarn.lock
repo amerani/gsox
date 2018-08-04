@@ -2,12 +2,6 @@
 # yarn lockfile v1
 
 
-"@gsox/schema@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.10.tgz#e089d7c29cbcec7babee015dae3120301ab58602"
-  dependencies:
-    reflect-metadata "^0.1.12"
-
 "@types/async@2.0.49":
   version "2.0.49"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.49.tgz#92e33d13f74c895cb9a7f38ba97db8431ed14bc0"

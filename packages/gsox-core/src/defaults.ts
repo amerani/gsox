@@ -8,3 +8,5 @@ const routes = {
 };
 
 export { host, port, routes };
+
+export const defaults = { host, port, routes };
