@@ -1,17 +1,17 @@
-import "reflect-metadata";
 import * as express from "express";
 import * as http from "http";
-import { createServer } from "../packages/gsox-server";
+import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
-import { Ping } from './Ping';
-import { Notification } from './Notification';
+import { createServer } from "../packages/gsox-server";
+import { Notification } from "./Notification";
+import { Ping } from "./Ping";
 
 const host = "localhost";
 const port = 5000;
 const routes = {
       graphql: "/graphql",
-      webhook: "/webhook"
-}
+      webhook: "/webhook",
+};
 const inject = [Ping, Notification];
 let server;
 let client;
@@ -44,7 +44,7 @@ test("should subscribe", (done) => {
       const testData = {
             Notification: {
                   type: "test_email",
-                  id: 99
+                  id: 99,
             },
       };
       client

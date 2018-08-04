@@ -13,5 +13,5 @@ function subscription(obj: object): string {
 }
 
 export {
-      subscription
+      subscription,
 };

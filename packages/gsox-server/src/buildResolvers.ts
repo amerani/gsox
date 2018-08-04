@@ -1,5 +1,5 @@
-import "reflect-metadata";
 import { withFilter } from "graphql-subscriptions";
+import "reflect-metadata";
 import { NOTIFICATION_TOPIC } from "./constants";
 import { pubSub } from "./pubSubProvider";
 
@@ -29,4 +29,4 @@ function buildResolvers() {
           };
 }
 
-export { buildResolvers }
+export { buildResolvers };

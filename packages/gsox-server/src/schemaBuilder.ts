@@ -1,6 +1,6 @@
+import { createSchema } from "@gsox/schema";
 import { makeExecutableSchema } from "graphql-tools";
-import { buildResolvers } from './buildResolvers';
-import { createSchema } from '@gsox/schema';
+import { buildResolvers } from "./buildResolvers";
 
 function buildSchema(types) {
       const typeDefs = createSchema(types);
@@ -10,5 +10,5 @@ function buildSchema(types) {
 }
 
 export {
-      buildSchema
-}
+      buildSchema,
+};

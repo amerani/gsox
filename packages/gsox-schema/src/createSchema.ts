@@ -1,5 +1,5 @@
-import "reflect-metadata";
 import gql from "graphql-tag";
+import "reflect-metadata";
 import { createSubscriptionType } from "./createSubscriptionTypeDef";
 import { createTypeDefs } from "./createTypeDef";
 
@@ -11,7 +11,7 @@ const rootSchema = `
             subscription: Subscription
             query: Query
       }
-`
+`;
 function createTypeDefString(types) {
       return `
             ${createSubscriptionType(types)} \n
@@ -23,7 +23,7 @@ function createSchemaString(types) {
       return `
             ${rootSchema} \n
             ${createTypeDefString(types)}
-      `
+      `;
 }
 
 function createSchema(types) {
@@ -32,5 +32,5 @@ function createSchema(types) {
 
 export {
       createSchemaString,
-      createSchema
-}
+      createSchema,
+};

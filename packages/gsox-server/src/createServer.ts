@@ -12,17 +12,17 @@ export function createServer(app, options) {
       const { host, port, routes, inject } = options;
       const schema = buildSchema(inject);
 
-      //add webhook endpoint
+      // add webhook endpoint
       app.post(routes.webhook, bodyParser.json(), (req, res) => {
             pubSub.publish(NOTIFICATION_TOPIC, req.body);
             return res.sendStatus(200);
       });
 
-      //init apollo server
+      // init apollo server
       const server = new ApolloServer({schema});
       server.applyMiddleware({ app });
 
-      //setup websockets endpoint
+      // setup websockets endpoint
       const ws = http(app);
 
       ws.listen({ host, port }, () => {

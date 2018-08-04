@@ -1,11 +1,11 @@
-import "reflect-metadata";
-import gql from "graphql-tag";
+import { createSubscription } from "@gsox/schema";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
+import gql from "graphql-tag";
+import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
-import { createSubscription } from "@gsox/schema";
 
 function createClient(options) {
       const { ws, host, port, routes } = options;
@@ -24,11 +24,11 @@ function createClient(options) {
       return {
             rawClient: client,
             subscribe: (T) => client.subscribe({
-                  query: gql(createSubscription(T))
-            })
-      }
+                  query: gql(createSubscription(T)),
+            }),
+      };
 }
 
 export {
-      createClient
-}
+      createClient,
+};

@@ -13,5 +13,5 @@ function createTypeDef(obj: Object): string {
 }
 
 export {
-      createTypeDef
+      createTypeDef,
 };

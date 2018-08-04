@@ -14,5 +14,5 @@ function createSubscription(T): string {
 }
 
 export {
-      createSubscription
+      createSubscription,
 };

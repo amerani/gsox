@@ -13,16 +13,16 @@ function createTypeDef(T): string {
       return schema;
 }
 
-function createTypeDefs(types):string {
+function createTypeDefs(types): string {
       return types.reduce(
             (acc, cur) => {
                   const typeStr = createTypeDef(cur);
                   return acc.concat([typeStr, "\n"]);
             },
-            '')
+            "");
 }
 
 export {
       createTypeDef,
-      createTypeDefs
+      createTypeDefs,
 };

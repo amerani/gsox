@@ -1,13 +1,13 @@
-import { Type, Field } from "../packages/gsox-schema";
+import { Field, Type } from "../packages/gsox-schema";
 
 @Type()
 class Notification {
-      @Field('Int')
-      id:number;
+      @Field("Int")
+      public id: number;
       @Field()
-      type: string;
+      public type: string;
       @Field()
-      timestamp: string;
+      public timestamp: string;
 }
 
-export { Notification }
+export { Notification };

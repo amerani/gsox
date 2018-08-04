@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { Field, Type, subscription, createSubscription } from "../src";
+import { createSubscription, Field, subscription, Type } from "../src";
 
 @Type("message")
 class Message {
