@@ -12,11 +12,12 @@ const routes = {
       graphql: "/graphql",
       webhook: "/webhook"
 }
+const inject = [Ping, Notification];
 let server;
 let client;
 beforeAll(() => {
       const app = express();
-      server = createServer(app, { host, port, routes });
+      server = createServer(app, { host, port, routes, inject });
       client = createClient({ host, port, routes });
 });
 
