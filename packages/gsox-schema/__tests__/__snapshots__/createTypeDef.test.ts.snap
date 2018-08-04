@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create many typedefs 1`] = `
+"type message {
+	message: String
+	value: Int
+	id: Number
+},
+type Test {
+	id: Int
+},
+"
+`;
+
+exports[`should create one typedef 1`] = `
+"type message {
+	message: String
+	value: Int
+	id: Number
+}"
+`;

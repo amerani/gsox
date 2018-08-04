@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create server 1`] = `
+Object {
+  "apollo": ApolloServer {
+    "context": undefined,
+    "extensions": Array [],
+    "graphqlPath": "/gsox/graphql",
+    "playgroundOptions": Object {
+      "settings": Object {
+        "editor.fontFamily": "'Source Code Pro', 'Consolas', 'Inconsolata', 'Droid Sans Mono', 'Monaco', monospace",
+        "editor.fontSize": 14,
+        "editor.reuseHeaders": true,
+        "editor.theme": "dark",
+        "general.betaUpdates": false,
+        "request.credentials": "omit",
+        "tracing.hideTracingResponse": true,
+      },
+      "version": "1.7.2",
+    },
+    "requestOptions": Object {
+      "cache": InMemoryLRUCache {
+        "store": LRUCache {
+          Symbol(max): Infinity,
+          Symbol(lengthCalculator): [Function],
+          Symbol(allowStale): false,
+          Symbol(maxAge): 0,
+          Symbol(dispose): undefined,
+          Symbol(noDisposeOnSet): false,
+          Symbol(cache): Map {},
+          Symbol(lruList): Yallist {
+            "head": null,
+            "length": 0,
+            "tail": null,
+          },
+          Symbol(length): 0,
+        },
+      },
+      "persistedQueries": Object {
+        "cache": InMemoryLRUCache {
+          "store": LRUCache {
+            Symbol(max): Infinity,
+            Symbol(lengthCalculator): [Function],
+            Symbol(allowStale): false,
+            Symbol(maxAge): 0,
+            Symbol(dispose): undefined,
+            Symbol(noDisposeOnSet): false,
+            Symbol(cache): Map {},
+            Symbol(lruList): Yallist {
+              "head": null,
+              "length": 0,
+              "tail": null,
+            },
+            Symbol(length): 0,
+          },
+        },
+      },
+    },
+    "schema": GraphQLSchema {
+      "__allowedLegacyNames": undefined,
+      "_directives": Array [
+        GraphQLDirective {
+          "args": Array [
+            Object {
+              "astNode": undefined,
+              "defaultValue": undefined,
+              "description": "Skipped when true.",
+              "name": "if",
+              "type": "Boolean!",
+            },
+          ],
+          "astNode": undefined,
+          "description": "Directs the executor to skip this field or fragment when the \`if\` argument is true.",
+          "locations": Array [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT",
+          ],
+          "name": "skip",
+        },
+        GraphQLDirective {
+          "args": Array [
+            Object {
+              "astNode": undefined,
+              "defaultValue": undefined,
+              "description": "Included when true.",
+              "name": "if",
+              "type": "Boolean!",
+            },
+          ],
+          "astNode": undefined,
+          "description": "Directs the executor to include this field or fragment only when the \`if\` argument is true.",
+          "locations": Array [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT",
+          ],
+          "name": "include",
+        },
+        GraphQLDirective {
+          "args": Array [
+            Object {
+              "astNode": undefined,
+              "defaultValue": "No longer supported",
+              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
+              "name": "reason",
+              "type": "String",
+            },
+          ],
+          "astNode": undefined,
+          "description": "Marks an element of a GraphQL schema as no longer supported.",
+          "locations": Array [
+            "FIELD_DEFINITION",
+            "ENUM_VALUE",
+          ],
+          "name": "deprecated",
+        },
+      ],
+      "_implementations": Object {},
+      "_mutationType": null,
+      "_queryType": "Query",
+      "_subscriptionType": "Subscription",
+      "_typeMap": Object {
+        "Boolean": "Boolean",
+        "Int": "Int",
+        "Ping": "Ping",
+        "Query": "Query",
+        "String": "String",
+        "Subscription": "Subscription",
+        "Test": "Test",
+        "__Directive": "__Directive",
+        "__DirectiveLocation": "__DirectiveLocation",
+        "__EnumValue": "__EnumValue",
+        "__Field": "__Field",
+        "__InputValue": "__InputValue",
+        "__Schema": "__Schema",
+        "__Type": "__Type",
+        "__TypeKind": "__TypeKind",
+        "schema": "schema",
+      },
+      "astNode": undefined,
+    },
+    "subscriptionServerOptions": Object {
+      "path": "/graphql",
+    },
+    "subscriptionsPath": "/graphql",
+    "uploadsConfig": Object {},
+  },
+  "close": [Function],
+  "host": "localhsot",
+  "listen": [Function],
+  "port": 5000,
+  "routes": Object {
+    "graphql": "/gsox/graphql",
+    "webhook": "/gsox/webhook",
+  },
+  "server": Server {
+    "_connections": 0,
+    "_events": Object {
+      "connection": [Function],
+      "error": [Function],
+      "listening": [Function],
+      "request": [Function],
+      "upgrade": [Function],
+    },
+    "_eventsCount": 5,
+    "_handle": null,
+    "_maxListeners": undefined,
+    "_pendingResponseData": 0,
+    "_unref": false,
+    "_usingWorkers": false,
+    "_workers": Array [],
+    "allowHalfOpen": true,
+    "httpAllowHalfOpen": false,
+    "keepAliveTimeout": 5000,
+    "maxHeadersCount": null,
+    "pauseOnConnect": false,
+    "timeout": 120000,
+    Symbol(IncomingMessage): [Function],
+    Symbol(ServerResponse): [Function],
+    Symbol(asyncId): -1,
+  },
+}
+`;

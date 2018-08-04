@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should build resolvers 1`] = `
+Object {
+  "Subscription": Object {
+    "Ping": Object {
+      "subscribe": [Function],
+    },
+  },
+}
+`;

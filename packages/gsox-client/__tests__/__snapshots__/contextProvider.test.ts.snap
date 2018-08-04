@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `<SubscriptionProvider />`;
+
+exports[`should render with props 1`] = `
+<SubscriptionProvider
+  client={Object {}}
+  ws={Object {}}
+/>
+`;

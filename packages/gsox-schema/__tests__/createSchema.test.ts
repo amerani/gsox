@@ -14,10 +14,10 @@ class Message {
 }
 test("should output schema", () => {
       const res = createSchemaString([Ping, Message]);
-      console.log(res.trim());
+      expect(res).toMatchSnapshot();
 });
 
 test("should build schema", () => {
       const res = createSchema([Ping, Message]);
-      expect(res).not.toBeNull();
+      expect(res).toMatchSnapshot();
 });

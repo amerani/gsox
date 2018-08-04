@@ -15,5 +15,5 @@ class Message {
 
 test("should output subscription type", () => {
       const res = createSubscriptionType([Ping, Message]);
-      console.log(res);
+      expect(res).toMatchSnapshot();
 });

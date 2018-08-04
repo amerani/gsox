@@ -22,5 +22,5 @@ beforeAll(() => message = new Message());
 
 test("should output subscription", () => {
       const sub = createSubscription(Message);
-      console.log(sub);
+      expect(sub).toMatchSnapshot();
 });
