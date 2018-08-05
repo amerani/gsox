@@ -1,5 +1,4 @@
 import * as express from "express";
-import * as http from "http";
 import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
 import { Ping } from "../packages/gsox-schema";
