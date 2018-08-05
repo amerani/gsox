@@ -11,7 +11,8 @@ app.use('/static', express.static(join(__dirname, 'dist')));
 const server = createServer(app, { routes, inject });
 const { host, port } = server;
 
-server.listen(() => console.log(`🧦 server started 🧦 \n
-      http://${host}:${port}${routes.webhook}
-      ws://${host}:${port}${routes.graphql}
+server.listen(() => console.log(`
+🧦 gsox server started 🧦
+http://${host}:${port}${routes.webhook}
+ws://${host}:${port}${routes.graphql}
 `));
