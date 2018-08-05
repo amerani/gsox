@@ -15,10 +15,14 @@ export class StreamProvider extends React.Component<any> {
 
 export class StreamConsumer extends React.Component<any> {
       render() {
-            const { type } = this.props;
+            const { type, types } = this.props;
             return <StreamContext.Consumer>
                         {({ client }) => {
-                              Observable.from(client.subscribe(type)).subscribe(console.log)
+                              const stream = types
+                                    .map(type => Observable.from(client.subscribe(type)))
+                                    .reduce((acc, cur) => acc.concat(cur));
+                              stream.subscribe(console.log);
+                              // Observable.from(client.subscribe(type)).subscribe(console.log)
                               return null
                         }}
                   </StreamContext.Consumer>

@@ -11,6 +11,16 @@ class Notification {
 }
 
 @Type()
+class Stream {
+      @Field('Int')
+      id:number;
+      @Field()
+      type:string;
+      @Field()
+      data:string;
+}
+
+@Type()
 class Alert {
       @Field('Int')
       id:number;
@@ -23,6 +33,6 @@ class Alert {
 }
 
 export {
-      Notification, Alert
+      Notification, Alert, Stream
 }
 
