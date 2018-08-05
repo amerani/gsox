@@ -14,16 +14,33 @@ export class StreamProvider extends React.Component<any> {
 }
 
 export class StreamConsumer extends React.Component<any> {
+      private client = null;
+      private subscription:ZenObservable.Subscription = null;
+      state = {
+            data: null,
+            error: null,
+            loading: true
+      }
+
+      componentWillUnmount() {
+            this.subscription.unsubscribe();
+            delete this.subscription;
+      }
+
+      init = (types) => this.subscription = this.subscription ||
+            types.map(type =>
+                  Observable.from(this.client.subscribe(type))
+                  .subscribe({
+                        next: ({data}) => this.setState({data, loading: false}),
+                        error: (error) => this.setState({error, loading: false})
+                  })
+      )
       render() {
-            const { type, types } = this.props;
-            return <StreamContext.Consumer>
-                        {({ client }) => {
-                              types.forEach(type => {
-                                    Observable.from(client.subscribe(type))
-                                    .subscribe(this.props.children as () => void)
-                              });
-                              return null
-                        }}
-                  </StreamContext.Consumer>
+            const { children, types } = this.props as {children: (s)=>React.ReactNode, types:any};
+            return <StreamContext.Consumer children={({client}):any => {
+                  this.client = client;
+                  this.init(types);
+                  return children(this.state);
+            }} />
       }
 }
