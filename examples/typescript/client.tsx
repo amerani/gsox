@@ -6,10 +6,30 @@ import { Ping } from "@gsox/schema";
 
 const client = createClient({ routes });
 
+class Content extends React.Component<any> {
+      state = {
+            data: undefined,
+            loading: true,
+            error: undefined
+      }
+      render() {
+            return(
+                  <>
+                  <p>{JSON.stringify(this.state)}</p>
+                  <StreamConsumer types={this.props.inject}>
+                  {{
+                        next: data => this.setState({ data, loading: false }),
+                        error: error => this.setState({ error, loading: false})
+                  }}
+                  </StreamConsumer>
+                  </>
+            )
+      }
+}
+
 ReactDOM.render(
       <StreamProvider client={client}>
-            <StreamConsumer types={[Ping, ...inject]}>
-            {(data) => console.log(JSON.stringify(data))}
-            </StreamConsumer>
+            <Content inject={inject} />
       </StreamProvider>
 , document.getElementById('content'));
+
