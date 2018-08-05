@@ -13,7 +13,9 @@ function buildResolvers(types): IResolvers<any, any> {
                   [typeName]: {
                         subscribe: withFilter(
                               () => pubSub.asyncIterator(`TOPIC_${typeName}`),
-                              (payload, variables) => true,
+                              (payload, variables) => {
+                                    return true;
+                              },
                         ),
                   },
             };

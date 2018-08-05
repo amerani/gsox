@@ -18,11 +18,10 @@ export class StreamConsumer extends React.Component<any> {
             const { type, types } = this.props;
             return <StreamContext.Consumer>
                         {({ client }) => {
-                              const stream = types
-                                    .map(type => Observable.from(client.subscribe(type)))
-                                    .reduce((acc, cur) => acc.concat(cur));
-                              stream.subscribe(console.log);
-                              // Observable.from(client.subscribe(type)).subscribe(console.log)
+                              types.forEach(type => {
+                                    Observable.from(client.subscribe(type))
+                                    .subscribe(this.props.children as () => void)
+                              });
                               return null
                         }}
                   </StreamContext.Consumer>

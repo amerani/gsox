@@ -18,7 +18,9 @@ export function createServer(app, options) {
       // add webhook endpoint
       app.post(routes.webhook, bodyParser.json(), (req, res) => {
             const { typeName } = req.body;
-            pubSub.publish(`TOPIC_${typeName}`, req.body);
+            const topic = `TOPIC_${typeName}`;
+            console.log(`${topic}: ${JSON.stringify(req.body)}`);
+            pubSub.publish(topic, req.body);
             return res.sendStatus(200);
       });
 
