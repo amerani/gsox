@@ -6,16 +6,39 @@ import { Ping } from "@gsox/schema";
 
 const client = createClient({ routes });
 
-const logger = ({data, error, loading}) => {
-      if(loading) return <p>loading</p>
-      if(data) return <p>{JSON.stringify(data)}</p>
-      if(error) return <p>{JSON.stringify(error)}</p>
+class PingView extends React.Component {
+      counter = 0;
+      renderer = ({data, error, loading}) => {
+            if(loading) return "Loading";
+            if(data) {
+                  this.counter++;
+                  return (<h4>Ping # {this.counter}</h4>)
+            }
+      }
+      render() {
+            return <StreamConsumer
+                  types={[Ping]}
+                  children={this.renderer}
+            />
+      }
+}
+
+class StreamView extends React.Component {
+      renderer = ({data, error, loading}) => data && (
+            <p>Payload: {JSON.stringify(data)}</p>
+      )
+      render() {
+            return <StreamConsumer
+                  types={inject}
+                  children={this.renderer}
+                  />
+      }
 }
 
 ReactDOM.render(
       <StreamProvider client={client}>
-            <StreamConsumer types={[Ping]} children={logger} />
-            <StreamConsumer types={inject} children={logger} />
+            <PingView />
+            <StreamView />
       </StreamProvider>
 , document.getElementById('content'));
 
