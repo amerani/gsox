@@ -1,6 +1,6 @@
 {
   "name": "@gsox/client",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -14,8 +14,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@gsox/core": "^0.1.15",
-    "@gsox/schema": "^0.1.16",
+    "@gsox/core": "^0.1.18",
+    "@gsox/schema": "^0.1.18",
     "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",
     "apollo-link": "^1.2.2",
