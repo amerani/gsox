@@ -37,7 +37,7 @@ class StreamView extends React.Component {
 
 ReactDOM.render(
       <StreamProvider client={client}>
-            <PingView />
+            {/* <PingView /> */}
             <StreamView />
       </StreamProvider>
 , document.getElementById('content'));

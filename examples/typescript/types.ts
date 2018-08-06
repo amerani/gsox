@@ -32,7 +32,15 @@ class Alert {
       timestamp: string;
 }
 
+@Type()
+class Complex {
+      @Field('Int')
+      id:number;
+      @Field('Alert')
+      Alert: Alert
+}
+
 export {
-      Notification, Alert, Stream
+      Notification, Alert, Stream, Complex
 }
 
