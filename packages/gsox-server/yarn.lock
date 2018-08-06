@@ -13,14 +13,15 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@gsox/core@^0.1.13":
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/@gsox/core/-/core-0.1.13.tgz#f12cfd57acfaa0494c89ab24be02422878c5467f"
+"@gsox/core@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@gsox/core/-/core-0.1.15.tgz#b0b8a2122d2f79fde4cd4eb63e9da2ef6ef92a80"
 
-"@gsox/schema@^0.1.12":
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.12.tgz#5ef2578b6c73ab956f57c22c5cd6314cb961cb72"
+"@gsox/schema@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.16.tgz#b88ab00f6bca0e4d00262ad41cc992d068a409c7"
   dependencies:
+    "@gsox/core" "^0.1.15"
     reflect-metadata "^0.1.12"
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
@@ -116,8 +117,8 @@
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.12.6.tgz#3d619198585fcabe5f4e1adfb5cf5f3388c66c13"
 
 "@types/graphql@^0.13.3":
-  version "0.13.3"
-  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.13.3.tgz#23af65796d341f93ef5b485138bd52c67786452d"
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.13.4.tgz#55ae9c29f0fd6b85ee536f5c72b4769d5c5e06b1"
 
 "@types/long@^4.0.0":
   version "4.0.0"
@@ -186,7 +187,7 @@ apollo-engine-reporting@0.0.0:
     graphql-extensions "0.1.0"
     lodash "^4.17.10"
 
-apollo-link@1.2.2:
+apollo-link@1.2.2, apollo-link@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.2.tgz#54c84199b18ac1af8d63553a68ca389c05217a03"
   dependencies:
@@ -267,8 +268,8 @@ apollo-upload-server@^5.0.0:
     object-path "^0.11.4"
 
 apollo-utilities@^1.0.0, apollo-utilities@^1.0.1:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.16.tgz#787310df4c3900a68c0beb3d351c59725a588cdb"
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.17.tgz#04cd22db5c5dba8dbd349e28b0d9f9f525ab8e8a"
   dependencies:
     fast-json-stable-stringify "^2.0.0"
 
@@ -530,11 +531,21 @@ graphql-tag@^2.9.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.9.2.tgz#2f60a5a981375f430bf1e6e95992427dc18af686"
 
-graphql-tools@^3.0.4, graphql-tools@^3.0.5:
+graphql-tools@^3.0.4:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-3.0.5.tgz#544542dbf2fddc8c3d7d654965285a3bc747b10b"
   dependencies:
     apollo-link "1.2.2"
+    apollo-utilities "^1.0.1"
+    deprecated-decorator "^0.1.6"
+    iterall "^1.1.3"
+    uuid "^3.1.0"
+
+graphql-tools@^3.0.5:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-3.1.1.tgz#d593358f01e7c8b1671a17b70ddb034dea9dbc50"
+  dependencies:
+    apollo-link "^1.2.2"
     apollo-utilities "^1.0.1"
     deprecated-decorator "^0.1.6"
     iterall "^1.1.3"
@@ -861,9 +872,19 @@ string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
 
-subscriptions-transport-ws@^0.9.11, subscriptions-transport-ws@^0.9.12:
+subscriptions-transport-ws@^0.9.11:
   version "0.9.12"
   resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.12.tgz#0deb945134890d8694a93a090bacc6459c4478cc"
+  dependencies:
+    backo2 "^1.0.2"
+    eventemitter3 "^3.1.0"
+    iterall "^1.2.1"
+    symbol-observable "^1.0.4"
+    ws "^5.2.0"
+
+subscriptions-transport-ws@^0.9.12:
+  version "0.9.14"
+  resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.14.tgz#a39e08edba89ee4cfd95f30484c55d865f5d8451"
   dependencies:
     backo2 "^1.0.2"
     eventemitter3 "^3.1.0"
@@ -922,5 +943,5 @@ zen-observable-ts@^0.8.9:
     zen-observable "^0.8.0"
 
 zen-observable@^0.8.0:
-  version "0.8.8"
-  resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.8.tgz#1ea93995bf098754a58215a1e0a7309e5749ec42"
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.9.tgz#0475c760ff0eda046bbdfa4dc3f95d392807ac53"
