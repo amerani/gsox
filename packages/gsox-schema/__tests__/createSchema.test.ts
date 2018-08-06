@@ -15,10 +15,10 @@ class Message {
 
 @Type()
 class NestedMessage {
-      @Field('Int')
-      id:number;
-      @Field('Message')
-      Message:Message;
+      @Field("Int")
+      public id: number;
+      @Field("Message")
+      public Message: Message;
 }
 
 test("should output schema", () => {
@@ -31,7 +31,7 @@ test("should build schema", () => {
       expect(res).toMatchSnapshot();
 });
 
-test('should build schema for nested types', () => {
+test("should build schema for nested types", () => {
       const res = createSchemaString([Message, NestedMessage]);
-      console.log(res);
-})
+      expect(res).toMatchSnapshot();
+});

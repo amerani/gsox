@@ -248,6 +248,42 @@ Object {
 }
 `;
 
+exports[`should build schema for nested types 1`] = `
+"
+            
+      type Query {
+            hello: String
+      }
+      type schema {
+            subscription: Subscription
+            query: Query
+      }
+      type Ping {
+            id: Int
+      }
+      type Subscription {
+            Ping: Ping
+      }
+ 
+
+            
+            extend type Subscription {
+Message:Message
+NestedMessage:NestedMessage
+} 
+
+            type Message {
+	content: String
+},
+type NestedMessage {
+	Message: Message
+	id: Int
+},
+
+      
+      "
+`;
+
 exports[`should output schema 1`] = `
 "
             

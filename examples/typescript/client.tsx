@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom"
 import { StreamProvider, StreamConsumer, createClient } from "@gsox/client";
-import { routes, inject } from "./config";
+import { routes, inject, host, port } from "./config";
 import { Ping } from "@gsox/schema";
 
-const client = createClient({ routes });
+const client = createClient({ routes, host, port, ws:null });
 
 class PingView extends React.Component {
       counter = 0;

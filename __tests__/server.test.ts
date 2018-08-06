@@ -12,8 +12,9 @@ let client;
 beforeAll(() => {
       const app = express();
       server = createServer(app, { port, inject });
-      client = createClient({ port });
-      server.listen(() => "Server ready");
+      const { host, routes } = server;
+      client = createClient({ port, host, routes, ws: null });
+      server.listen(() => console.log("server listening..."));
 });
 
 afterAll(() => {

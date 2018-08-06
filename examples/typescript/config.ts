@@ -4,4 +4,7 @@ const routes = { graphql: "/graphql", webhook: "/gsox/webhook" };
 
 const inject = [...Object.values(types)];
 
-export { routes, inject }
+const host = "localhost";
+const port = 8000;
+
+export { routes, inject, host, port }

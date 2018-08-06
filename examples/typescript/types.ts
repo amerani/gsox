@@ -35,9 +35,9 @@ class Alert {
 @Type()
 class Complex {
       @Field('Int')
-      id:number;
-      @Field('Alert')
-      Alert: Alert
+      id
+      @Field(Alert)
+      alert
 }
 
 export {

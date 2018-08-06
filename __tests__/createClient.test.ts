@@ -2,11 +2,25 @@ import * as express from "express";
 import * as http from "http";
 import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
+import { Field, Type } from "../packages/gsox-schema";
 import { createServer } from "../packages/gsox-server";
-import { Alert } from "./Alert";
+
+@Type()
+class MessageType {
+      @Field()
+      public type: string;
+      constructor() { }
+}
+@Type()
+class Message {
+      @Field("Int")
+      public id: number;
+      @Field(MessageType)
+      public type: MessageType;
+}
 
 const port = 5001;
-const inject = [Alert];
+const inject = [Message, MessageType];
 let server;
 let client;
 beforeAll(() => {
@@ -18,22 +32,26 @@ beforeAll(() => {
 });
 
 afterAll(() => {
-      server.close();
+      // server.close();
 });
 
-test("should subscribe", (done) => {
+test.skip("should subscribe", (done) => {
       const testData = {
-            Alert: {
-                  type: "test",
+            Message: {
                   id: 99,
+                  MessageType: {
+                        type: "Email",
+                  },
             },
-            typeName: "Alert",
+            typeName: "Message",
       };
       client
-      .subscribe(Alert)
+      .subscribe(Message)
       .subscribe({
             next({data, errors}) {
-                  expect(data.Alert.id).toBe(testData.Alert.id);
+                  expect(errors).toBeNull();
+                  expect(errors).toHaveLength(0);
+                  expect(data.Message.id).toBe(testData.Message.id);
                   done();
             },
             error(e) { expect(e).toBeNull(); done(); },

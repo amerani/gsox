@@ -8,7 +8,7 @@ import gql from "graphql-tag";
 import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
 
-function createClient(options) {
+function createClient(options: ClientOptions) {
       const curOptions = {...defaults, ...options};
       const { ws, host, port, routes } = curOptions;
       const GRAPHQL_ENDPOINT = `ws://${host}:${port}${routes.graphql}`;
