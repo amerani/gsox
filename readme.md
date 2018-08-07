@@ -24,6 +24,7 @@ class MessageType { ... }
 
 const inject = [Notification, MessageType]
 ```
+[schema README](packages/gsox-schema/readme.md)
 
 ## client
 consume/subscribe to one or more types
@@ -57,6 +58,7 @@ client.subscribe([Notification, MessageType], {
       error: error => console.log(error)
 })
 ```
+[client README](packages/gsox-client/readme.md)
 
 ## server
 inject data types and apply express middleware
@@ -69,6 +71,7 @@ const server = applyMiddleware(app, { host, port, inject })
 
 server.listen(() => console.log(`gsox listening 🧦🧦🧦`))
 ```
+[server README](packages/gsox-server/readme.md)
 
 ## endpoints
 `http://host:port/webhook` - accepts shape of your schema

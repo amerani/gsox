@@ -1,29 +1,82 @@
 # gsox-schema
 decorators, types, and builders for describing data
 
-## examples
+## installation
+```sh
+#npm
+npm install @gsox/schema
+
+#yarn
+yarn add @gsox/schema
+```
+
+## decorators
 ```js
-import { Type, Field, TypeNode, FieldNode } from "@gsox/schema"
+import { Type, Field } from "@gsox/schema"
 
 @Type()
 class Alert {
       @Field('Int')
       id:number;
+
+      @Field()
+      data: string;
 }
 
 @Type()
 class MessageType { ... }
 
-const schema = new TypeNode('Mail', [
-      new FieldNode('id', 'Int'),
-      new FieldNode('message', 'String')
-])
+```
 
-const schemaString = `
-      type Event {
+## builders
+```js
+import { TypeNode, FieldNode } from "@gsox/schema"
+
+const alertTypeNode = new TypeNode('Alert', [
+      new FieldNode('id', 'Int'),
+      new FieldNode('data', 'String')
+])
+```
+
+## graphql
+```js
+const typeDef = `
+      type Alert {
             id: Int
+            data: String
       }
 `
+```
 
-const inject = [MessageType, Alert, schema, schemaString] //client + server
+## schema injection
+inject shared client and server types or graphql type definitions
+```js
+const inject: {new ()}[]      //constructor functions
+            | {}[]            //objects
+            | string[] =
+      [
+            Notification,     // class with
+            Message,          // schema
+            new Alert(),      // decorators
+
+            //or typedef
+            `message {
+                  type: String
+            }`
+      ]
+
+```
+```js
+// client.js
+import { createClient } from "@gsox/client"
+
+const client = createClient(options)
+client.subscribe([...inject], observer)
+```
+```js
+// server.js
+import { applyMiddleware } from "@gsox/server"
+
+const app = express()
+const server = applyMiddleware(app, [...inject])
 ```
