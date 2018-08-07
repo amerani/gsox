@@ -5,6 +5,7 @@ import { createClient } from "../packages/gsox-client";
 import { Field, Type } from "../packages/gsox-schema";
 import { applyMiddleware } from "../packages/gsox-server";
 
+const port = 5000;
 @Type()
 class MessageType {
       @Field()
@@ -19,7 +20,6 @@ class Message {
       public type: MessageType;
 }
 
-const port = 5001;
 const inject = [Message, MessageType];
 let server;
 let client;
@@ -46,8 +46,7 @@ test.skip("should subscribe", (done) => {
             typeName: "Message",
       };
       client
-      .subscribe(Message)
-      .subscribe({
+      .subscribe(Message, {
             next({data, errors}) {
                   expect(errors).toBeNull();
                   expect(errors).toHaveLength(0);

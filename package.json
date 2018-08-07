@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "build": "lerna run build",
+    "build:ex": "wp ./examples/**/*.config.js",
     "nuke": "lerna run --parallel nuke",
     "clean": "lerna run --parallel clean",
-    "rebuild": "yarn run clean && yarn run build && wp --config ./examples/typescript/webpack.config.js",
+    "rebuild": "yarn clean && concurrently \"yarn build\" \"yarn build:ex\" ",
     "bootstrap": "lerna bootstrap",
     "test": "jest",
-    "lint": "tslint **/src/**/*.ts **/__tests__/**/*.ts",
-    "publish": "yarn run rebuild && lerna publish",
-    "serve": "concurrently \"node examples/hello-world/server.js\" \"webpack-dev-server --config examples/hello-world/webpack.config.js\"",
+    "lint": "concurrently \"yarn lint:src\" \"yarn lint:test\" ",
+    "lint:src": "tslint ./packages/**/src/**/*.ts",
+    "lint:test": "tslint ./packages/**/__tests__/**/*.test.ts",
+    "publish": "yarn rebuild && lerna publish",
     "link": "lerna link",
-    "serve-ts": "wp --config ./examples/typescript/webpack.config.js && ts-node ./examples/typescript/server.ts"
+    "serve": "yarn build:ex && ts-node ./examples/typescript/server.ts"
   },
   "bin": {
     "gsox": "./install.js"
@@ -50,6 +52,7 @@
     "graphql-tag": "^2.9.2",
     "http": "^0.0.0",
     "jest": "^23.4.2",
+    "jest-environment-node": "^23.4.0",
     "lerna": "^2.11.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

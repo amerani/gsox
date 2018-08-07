@@ -5,7 +5,7 @@ import { Ping } from "../packages/gsox-schema";
 import { applyMiddleware } from "../packages/gsox-server";
 import { Notification } from "./Notification";
 
-const port = 5000;
+const port = 4000;
 const inject = [Notification];
 let server;
 let client;
@@ -27,8 +27,7 @@ test("should connect", () => {
 
 test("should ping", (done) => {
       client
-      .subscribe(Ping)
-      .subscribe({
+      .subscribe(Ping, {
             next({data: {Ping}}) {
                   expect(parseInt(Ping.id)).toBe(0);
                   done();

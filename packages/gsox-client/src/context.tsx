@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as Observable from "zen-observable";
 
 const StreamContext = React.createContext<{client:any}>({client:null});
 
@@ -29,7 +28,7 @@ export class StreamConsumer extends React.Component<any> {
 
       init = (types) => this.subscription = this.subscription ||
             types.map(type =>
-                  Observable.from(this.client.subscribe(type))
+                  this.client.subscribe(type)
                   .subscribe({
                         next: ({data}) => this.setState({data, loading: false}),
                         error: (error) => this.setState({error, loading: false})

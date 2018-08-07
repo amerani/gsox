@@ -7,6 +7,7 @@ import { WebSocketLink } from "apollo-link-ws";
 import gql from "graphql-tag";
 import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
+import * as Observable from "zen-observable";
 
 function createClient(options: ClientOptions) {
       const curOptions = {...defaults, ...options};
@@ -23,11 +24,19 @@ function createClient(options: ClientOptions) {
         ssrForceFetchDelay: 100,
       });
 
+      const subscribe = (T, observer?:ZenObservable.Observer<{}>) => {
+            const query = gql(createSubscription(T));
+            const apolloSub:any = client.subscribe({ query });
+            const observable = Observable.from(apolloSub);
+            if(observer) {
+                  return observable.subscribe(observer);
+            }
+            return observable;
+      }
+
       return {
             rawClient: client,
-            subscribe: (T) => client.subscribe({
-                  query: gql(createSubscription(T)),
-            }),
+            subscribe
       };
 }
 

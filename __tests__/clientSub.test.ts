@@ -5,7 +5,7 @@ import { createClient } from "../packages/gsox-client";
 import { applyMiddleware } from "../packages/gsox-server";
 import { Alert } from "./Alert";
 
-const port = 5001;
+const port = 6000;
 const inject = [Alert];
 let server;
 let client;
@@ -30,8 +30,7 @@ test("should subscribe", (done) => {
             typeName: "Alert",
       };
       client
-      .subscribe(Alert)
-      .subscribe({
+      .subscribe(Alert, {
             next({data, errors}) {
                   expect(data.Alert.id).toBe(testData.Alert.id);
                   done();
