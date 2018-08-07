@@ -22,7 +22,7 @@
   "author": "Alek Merani",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.55",
+    "@babel/core": "^7.0.0-beta.56",
     "@gsox/client": "^0.1.18",
     "@gsox/core": "^0.1.18",
     "@gsox/schema": "^0.1.18",
@@ -46,7 +46,7 @@
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "http": "^0.0.0",
-    "jest": "^23.4.1",
+    "jest": "^23.4.2",
     "lerna": "^2.11.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -82,6 +82,7 @@
     },
     "testMatch": [
       "**/__tests__/*.test.ts"
-    ]
+    ],
+    "testURL": "http://localhost/"
   }
 }

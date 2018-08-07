@@ -3,7 +3,7 @@ import * as http from "http";
 import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
 import { Field, Type } from "../packages/gsox-schema";
-import { createServer } from "../packages/gsox-server";
+import { applyMiddleware } from "../packages/gsox-server";
 
 @Type()
 class MessageType {
@@ -25,7 +25,7 @@ let server;
 let client;
 beforeAll(() => {
       const app = express();
-      server = createServer(app, { port, inject });
+      server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
       client = createClient({ port, host, routes, ws: null });
       server.listen(() => console.log("server listening..."));

@@ -2,13 +2,13 @@ import { defaults } from "@gsox/core";
 import { ApolloServer } from "apollo-server-express";
 import * as bodyParser from "body-parser";
 import { execute, subscribe } from "graphql";
-import { createServer as http } from "http";
+import * as http from "http";
 import "reflect-metadata";
 import { SubscriptionServer } from "subscriptions-transport-ws";
 import { pubSub } from "./pubSubProvider";
 import { buildSchema } from "./schemaBuilder";
 
-export function createServer(app, options) {
+export function applyMiddleware(app, options) {
       const curOpt = {...defaults, ...options};
       const { host, port, routes, inject } = curOpt;
 
@@ -30,7 +30,7 @@ export function createServer(app, options) {
       apollo.applyMiddleware({ app, path });
 
       // init subscription websocket
-      const server = http(app);
+      const server = http.createServer(app);
       SubscriptionServer.create({
             execute, schema, subscribe,
       }, {  path, server });

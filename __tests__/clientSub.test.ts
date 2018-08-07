@@ -2,7 +2,7 @@ import * as express from "express";
 import * as http from "http";
 import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
-import { createServer } from "../packages/gsox-server";
+import { applyMiddleware } from "../packages/gsox-server";
 import { Alert } from "./Alert";
 
 const port = 5001;
@@ -11,7 +11,7 @@ let server;
 let client;
 beforeAll(() => {
       const app = express();
-      server = createServer(app, { port, inject });
+      server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
       client = createClient({ port, host, routes, ws: null });
       server.listen(() => console.log("server listening..."));

@@ -1,31 +1,41 @@
 # gsox
 framework for streaming data to browser and mobile clients using grapqhl subscriptions, websockets, and webhook
 
+## installation
+`npx gsox`
+
 ## schema
+describe your data types
 ```js
 import { Type, Field } from "@gsox/schema"
 
 @Type()
-class Alert {
+class Notification {
 
       @Field('Int')
-      id:number;
+      id:number
+
+      @Field()
+      type:string
 }
 
 @Type()
 class MessageType { ... }
 
-const inject = [MessageType, Alert]
+const inject = [Notification, MessageType]
 ```
 
 ## client
+consume/subscribe to one or more types
+
+### react
 ```js
 import { createClient, StreamProvider, StreamConsumer } from "@gsox/client"
 
-const client = new createClient({ host, port })
+const client = createClient({ host, port })
 
 <StreamProvider client={client}>
-      <StreamConsumer types={[Alert]}>
+      <StreamConsumer types={[Notification]}>
 
       {({ data, error, loading }) => {
             if(loading) return <Loading />
@@ -36,15 +46,43 @@ const client = new createClient({ host, port })
 </StreamProvider>
 ```
 
-## server
+### observable
 ```js
-import { createServer } from "@gsox/server"
+import { createClient } from "@gsox/client"
+
+const client = createClient({ host, port })
+
+client.subscribe([Notification, MessageType], {
+      next: data => console.log(data),
+      error: error => console.log(error)
+})
+```
+
+## server
+inject data types and apply express middleware
+```js
+import { applyMiddleware } from "@gsox/server"
 
 const app = express()
 
-const server = new createServer(app, { host, port, inject })
-      .listen(() => console.log(`listening...🧦
-            ws://host:port/graphql
-            http://host:port/webhook [POST new Alert()]`)
-)
+const server = applyMiddleware(app, { host, port, inject })
+
+server.listen(() => console.log(`gsox listening 🧦🧦🧦`))
+```
+
+## endpoints
+`http://host:port/webhook` - accepts shape of your schema
+
+`ws://host:port/graphql` - publishes webhook body to client subscribers
+
+## options
+```js
+{
+  host: "localhost",
+  port: 3000,
+  routes: {
+    graphql: "/graphql",
+    webhook: "/webhook"
+  }
+}
 ```

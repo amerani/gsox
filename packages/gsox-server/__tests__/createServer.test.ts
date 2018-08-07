@@ -1,6 +1,6 @@
 import { Field, Type } from "@gsox/schema";
 import * as express from "express";
-import { createServer } from "../src/createServer";
+import { applyMiddleware } from "../src/applyMiddleware";
 
 @Type()
 class Test {
@@ -9,9 +9,9 @@ class Test {
 }
 
 test("should create server", () => {
-      expect(createServer(express(), { host: "localhsot", port: 5000, inject: [Test] })).toMatchSnapshot();
+      expect(applyMiddleware(express(), { host: "localhsot", port: 5000, inject: [Test] })).toMatchSnapshot();
 });
 
 test("should throw when not injected", () => {
-      expect(() => createServer(express(), {})).toThrow();
+      expect(() => applyMiddleware(express(), {})).toThrow();
 });

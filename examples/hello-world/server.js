@@ -3,7 +3,7 @@ const server = require("@gsox/server");
 const path = require('path')
 
 const app = express();
-server.createServer(app, {
+server.applyMiddleware(app, {
     host: "localhost",
     port: 3000,
     routes: {
