@@ -119,12 +119,12 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@gsox/client@^0.1.7":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@gsox/client/-/client-0.1.17.tgz#abb9a33bd775689ded9d954db21260869a3c1831"
+"@gsox/client@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@gsox/client/-/client-0.1.18.tgz#108b2daeaf6c58fa286e3d10bea571f2b2c34197"
   dependencies:
-    "@gsox/core" "^0.1.15"
-    "@gsox/schema" "^0.1.16"
+    "@gsox/core" "^0.1.18"
+    "@gsox/schema" "^0.1.18"
     apollo-cache-inmemory "^1.2.5"
     apollo-client "^2.3.5"
     apollo-link "^1.2.2"
@@ -137,23 +137,23 @@
     react-apollo-graphql "^1.0.2"
     reflect-metadata "^0.1.12"
 
-"@gsox/core@^0.1.15":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@gsox/core/-/core-0.1.15.tgz#b0b8a2122d2f79fde4cd4eb63e9da2ef6ef92a80"
+"@gsox/core@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@gsox/core/-/core-0.1.18.tgz#a0b022b6305ae8f14500c5a439e996d15a41481a"
 
-"@gsox/schema@^0.1.16":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.16.tgz#b88ab00f6bca0e4d00262ad41cc992d068a409c7"
+"@gsox/schema@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@gsox/schema/-/schema-0.1.18.tgz#ba8b9c9fd1763d2ec1a33a7875b53125fcfdba0c"
   dependencies:
-    "@gsox/core" "^0.1.15"
+    "@gsox/core" "^0.1.18"
     reflect-metadata "^0.1.12"
 
-"@gsox/server@^0.1.7":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@gsox/server/-/server-0.1.17.tgz#b32488fbc26ec6ed03c8e2bd4e56b29be8f37505"
+"@gsox/server@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@gsox/server/-/server-0.1.18.tgz#604aee451ed42dc66af46b38ab02fc6a30598a07"
   dependencies:
-    "@gsox/core" "^0.1.15"
-    "@gsox/schema" "^0.1.16"
+    "@gsox/core" "^0.1.18"
+    "@gsox/schema" "^0.1.18"
     "@types/graphql" "^0.13.3"
     apollo-server-express "^2.0.0"
     body-parser "^1.18.3"
@@ -900,7 +900,7 @@ async@^1.4.0, async@^1.5.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
-async@^2.1.4:
+async@^2.1.4, async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
   dependencies:
