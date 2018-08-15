@@ -12,9 +12,7 @@ import * as typeGraph from "./typeGraph";
 
 function createClient(options: ClientOptions) {
       const curOptions = {...defaults, ...options};
-      console.log(options)
       const { ws, host, port, routes, inject } = curOptions;
-      console.log("create client inject", inject)
       const GRAPHQL_ENDPOINT = `ws://${host}:${port}${routes.graphql}`;
       const wsClient = new SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws);
 

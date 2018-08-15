@@ -1,5 +1,5 @@
 import { build } from "../src/typeGraph";
-import * as types from "./types";
+import * as types from "../src/types";
 
 let typeGraph;
 beforeEach(() => {
