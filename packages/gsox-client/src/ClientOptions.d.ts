@@ -6,8 +6,8 @@ declare class ClientOptions {
             webhook: string,
       };
       public inject
-            : {new ()}[]      //constructor functions
-            | {}[]            //objects
-            | string[];       //typedef strings
+            : Array<{new ()}>      // constructor functions
+            | Array<{}>            // objects
+            | string[];       // typedef strings
       public ws: any;
 }

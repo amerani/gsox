@@ -12,9 +12,10 @@
     "bootstrap": "lerna bootstrap",
     "test": "jest",
     "lint": "concurrently \"yarn lint:src\" \"yarn lint:test\" ",
-    "lint:src": "tslint ./packages/**/src/**/*.ts",
-    "lint:test": "tslint ./packages/**/__tests__/**/*.test.ts",
+    "lint:src": "tslint ./packages/**/src/**/*.ts --fix",
+    "lint:test": "tslint ./packages/**/__tests__/**/*.test.ts --fix",
     "publish": "yarn rebuild && lerna publish",
+    "release": "lerna publish",
     "link": "lerna link",
     "serve": "yarn build:ex && ts-node ./examples/typescript/server.ts"
   },

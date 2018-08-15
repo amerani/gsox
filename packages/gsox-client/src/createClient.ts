@@ -25,20 +25,20 @@ function createClient(options: ClientOptions) {
         ssrForceFetchDelay: 100,
       });
 
-      const subscribe = (T, observer?:ZenObservable.Observer<{}>) => {
+      const subscribe = (T, observer?: ZenObservable.Observer<{}>) => {
             const query = gql(createSubscription(T));
-            const apolloSub:any = client.subscribe({ query });
+            const apolloSub: any = client.subscribe({ query });
             const observable = Observable.from(apolloSub);
-            if(observer) {
+            if (observer) {
                   return observable.subscribe(observer);
             }
             return observable;
-      }
+      };
 
       return {
             rawClient: client,
             subscribe,
-            typeGraph: typeGraph.build(inject)
+            typeGraph: typeGraph.build(inject),
       };
 }
 

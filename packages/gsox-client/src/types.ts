@@ -1,53 +1,53 @@
-import { Type, Field } from '@gsox/schema';
+import { Field, Type } from "@gsox/schema";
 
 @Type()
 class Notification {
-      @Field('Int')
-      id:number;
+      @Field("Int")
+      public id: number;
       @Field()
-      type: string;
+      public type: string;
       @Field()
-      timestamp: string;
+      public timestamp: string;
 }
 
 @Type()
 class Stream {
-      @Field('Int')
-      id:number;
+      @Field("Int")
+      public id: number;
       @Field()
-      type:string;
+      public type: string;
       @Field()
-      data:string;
+      public data: string;
 }
 
 @Type()
 class AlertType {
       @Field()
-      type:string;
+      public type: string;
 }
 
 @Type()
 class Alert {
-      @Field('Int')
-      id:number;
+      @Field("Int")
+      public id: number;
       @Field()
-      message: string;
+      public message: string;
       @Field()
-      severity: string;
+      public severity: string;
       @Field()
-      timestamp: string;
+      public timestamp: string;
       @Field(AlertType)
-      type:AlertType
+      public type: AlertType;
 }
 
 @Type()
 class Complex {
-      @Field('Int')
-      id
+      @Field("Int")
+      public id;
       @Field(Alert)
-      alert
+      public alert;
 }
 
 export {
-      Notification, Alert, Stream, Complex
-}
+      Notification, Alert, Stream, Complex,
+};
