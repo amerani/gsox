@@ -7,6 +7,8 @@ const routes = {
       webhook: "/gsox/webhook",
 };
 
-export { host, port, routes };
+const inject = [];
 
-export const defaults = { host, port, routes };
+export { host, port, routes, inject };
+
+export const defaults = { host, port, routes, inject };

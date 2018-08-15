@@ -8,10 +8,13 @@ import gql from "graphql-tag";
 import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
 import * as Observable from "zen-observable";
+import * as typeGraph from "./typeGraph";
 
 function createClient(options: ClientOptions) {
       const curOptions = {...defaults, ...options};
-      const { ws, host, port, routes } = curOptions;
+      console.log(options)
+      const { ws, host, port, routes, inject } = curOptions;
+      console.log("create client inject", inject)
       const GRAPHQL_ENDPOINT = `ws://${host}:${port}${routes.graphql}`;
       const wsClient = new SubscriptionClient(GRAPHQL_ENDPOINT, { reconnect: true }, ws);
 
@@ -36,7 +39,8 @@ function createClient(options: ClientOptions) {
 
       return {
             rawClient: client,
-            subscribe
+            subscribe,
+            typeGraph: typeGraph.build(inject)
       };
 }
 

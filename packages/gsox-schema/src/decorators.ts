@@ -19,6 +19,7 @@ function Field<T extends {new(...args: any[]): {}}>(type?: T|string, name?) {
                   typeName = type.name;
                   const instance = new type();
                   if (instance) {
+                        typeName = Reflect.get(instance, TYPE_SYMBOL);
                         children = children.concat(Reflect.getMetadata(FIELD_SYMBOL, instance));
                   }
             }

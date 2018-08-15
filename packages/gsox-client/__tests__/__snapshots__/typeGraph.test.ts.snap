@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert should have AlertType 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "id": "type",
+        "name": "type",
+        "type": "String",
+      },
+    ],
+    "id": "type",
+    "name": "type",
+    "type": "AlertType",
+  },
+  Object {
+    "children": Array [],
+    "id": "timestamp",
+    "name": "timestamp",
+    "type": "String",
+  },
+  Object {
+    "children": Array [],
+    "id": "severity",
+    "name": "severity",
+    "type": "String",
+  },
+  Object {
+    "children": Array [],
+    "id": "message",
+    "name": "message",
+    "type": "String",
+  },
+  Object {
+    "children": Array [],
+    "id": "id",
+    "name": "id",
+    "type": "Int",
+  },
+]
+`;
+
+exports[`Complex should have Alert and children 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "id": "type",
+            "name": "type",
+            "type": "String",
+          },
+        ],
+        "id": "type",
+        "name": "type",
+        "type": "AlertType",
+      },
+      Object {
+        "children": Array [],
+        "id": "timestamp",
+        "name": "timestamp",
+        "type": "String",
+      },
+      Object {
+        "children": Array [],
+        "id": "severity",
+        "name": "severity",
+        "type": "String",
+      },
+      Object {
+        "children": Array [],
+        "id": "message",
+        "name": "message",
+        "type": "String",
+      },
+      Object {
+        "children": Array [],
+        "id": "id",
+        "name": "id",
+        "type": "Int",
+      },
+    ],
+    "id": "alert",
+    "name": "alert",
+    "type": "Alert",
+  },
+]
+`;
+
+exports[`should build typegraph 1`] = `
+Object {
+  "Alert": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "id": "type",
+          "name": "type",
+          "type": "String",
+        },
+      ],
+      "id": "type",
+      "name": "type",
+      "type": "AlertType",
+    },
+    Object {
+      "children": Array [],
+      "id": "timestamp",
+      "name": "timestamp",
+      "type": "String",
+    },
+    Object {
+      "children": Array [],
+      "id": "severity",
+      "name": "severity",
+      "type": "String",
+    },
+    Object {
+      "children": Array [],
+      "id": "message",
+      "name": "message",
+      "type": "String",
+    },
+    Object {
+      "children": Array [],
+      "id": "id",
+      "name": "id",
+      "type": "Int",
+    },
+  ],
+  "Complex": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [],
+              "id": "type",
+              "name": "type",
+              "type": "String",
+            },
+          ],
+          "id": "type",
+          "name": "type",
+          "type": "AlertType",
+        },
+        Object {
+          "children": Array [],
+          "id": "timestamp",
+          "name": "timestamp",
+          "type": "String",
+        },
+        Object {
+          "children": Array [],
+          "id": "severity",
+          "name": "severity",
+          "type": "String",
+        },
+        Object {
+          "children": Array [],
+          "id": "message",
+          "name": "message",
+          "type": "String",
+        },
+        Object {
+          "children": Array [],
+          "id": "id",
+          "name": "id",
+          "type": "Int",
+        },
+      ],
+      "id": "alert",
+      "name": "alert",
+      "type": "Alert",
+    },
+    Object {
+      "children": Array [],
+      "id": "id",
+      "name": "id",
+      "type": "Int",
+    },
+  ],
+  "Notification": Array [
+    Object {
+      "children": Array [],
+      "id": "timestamp",
+      "name": "timestamp",
+      "type": "String",
+    },
+    Object {
+      "children": Array [],
+      "id": "type",
+      "name": "type",
+      "type": "String",
+    },
+    Object {
+      "children": Array [],
+      "id": "id",
+      "name": "id",
+      "type": "Int",
+    },
+  ],
+  "Stream": Array [
+    Object {
+      "children": Array [],
+      "id": "data",
+      "name": "data",
+      "type": "String",
+    },
+    Object {
+      "children": Array [],
+      "id": "type",
+      "name": "type",
+      "type": "String",
+    },
+    Object {
+      "children": Array [],
+      "id": "id",
+      "name": "id",
+      "type": "Int",
+    },
+  ],
+}
+`;
