@@ -1,6 +1,6 @@
 {
   "name": "@gsox/schema",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "main": "lib/index.js",
   "author": "Alek Merani",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "nuke": "rimraf lib && rm -rf node_modules"
   },
   "dependencies": {
-    "@gsox/core": "^0.2.0",
+    "@gsox/core": "^0.2.2",
     "reflect-metadata": "^0.1.12"
   },
   "directories": {
