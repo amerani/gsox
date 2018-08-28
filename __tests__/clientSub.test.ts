@@ -13,7 +13,7 @@ beforeAll(() => {
       const app = express();
       server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
-      client = createClient({ port, host, routes, ws: null });
+      client = createClient({ port, host, routes, ws: null, inject });
       server.listen(() => console.log("server listening..."));
 });
 

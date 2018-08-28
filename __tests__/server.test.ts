@@ -13,7 +13,7 @@ beforeAll(() => {
       const app = express();
       server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
-      client = createClient({ port, host, routes, ws: null });
+      client = createClient({ port, host, routes, ws: null, inject: [Ping, ...inject] });
       server.listen(() => console.log("server listening..."));
 });
 
@@ -24,6 +24,10 @@ afterAll(() => {
 test("should connect", () => {
       expect(server).not.toBeNull();
 });
+
+test('should init client', () => {
+      expect(client).not.toBeNull();
+})
 
 test("should ping", (done) => {
       client

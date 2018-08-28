@@ -36,7 +36,7 @@
     "@gsox/server": "^0.1.18",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.1.6",
-    "@types/node": "^10.5.2",
+    "@types/node": "^10.9.2",
     "@types/react-dom": "^16.0.6",
     "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",

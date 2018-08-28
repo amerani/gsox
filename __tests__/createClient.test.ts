@@ -4,6 +4,7 @@ import "reflect-metadata";
 import { createClient } from "../packages/gsox-client";
 import { Field, Type } from "../packages/gsox-schema";
 import { applyMiddleware } from "../packages/gsox-server";
+import { Ping } from "../packages/gsox-schema";
 
 const port = 5000;
 @Type()
@@ -27,15 +28,15 @@ beforeAll(() => {
       const app = express();
       server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
-      client = createClient({ port, host, routes, ws: null });
+      client = createClient({ port, host, routes, ws: null, inject: [Ping, ...inject] });
       server.listen(() => console.log("server listening..."));
 });
 
 afterAll(() => {
-      // server.close();
+      server.close();
 });
 
-test.skip("should subscribe", (done) => {
+test("should subscribe", (done) => {
       const testData = {
             Message: {
                   id: 99,
@@ -48,8 +49,7 @@ test.skip("should subscribe", (done) => {
       client
       .subscribe(Message, {
             next({data, errors}) {
-                  expect(errors).toBeNull();
-                  expect(errors).toHaveLength(0);
+                  expect(errors == null || errors == undefined).toBe(true);
                   expect(data.Message.id).toBe(testData.Message.id);
                   done();
             },

@@ -1,13 +1,17 @@
 import { defaults } from "@gsox/core";
+import { TYPE_SYMBOL } from "@gsox/core";
 import { createSubscription } from "@gsox/schema";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
+import { DocumentNode } from "graphql";
 import gql from "graphql-tag";
+import "reflect-metadata";
 import "reflect-metadata";
 import { SubscriptionClient } from "subscriptions-transport-ws";
 import * as Observable from "zen-observable";
+import { build } from "./buildSubscriptionQuery";
 import * as typeGraph from "./typeGraph";
 
 function createClient(options: ClientOptions) {
@@ -25,8 +29,13 @@ function createClient(options: ClientOptions) {
         ssrForceFetchDelay: 100,
       });
 
+      const container = typeGraph.build(inject);
+
       const subscribe = (T, observer?: ZenObservable.Observer<{}>) => {
-            const query = gql(createSubscription(T));
+            // const query = gql(createSubscription(T));
+            const obj = new T();
+            const schemaType = Reflect.get(obj, TYPE_SYMBOL);
+            const query: DocumentNode = build(schemaType, container[schemaType]);
             const apolloSub: any = client.subscribe({ query });
             const observable = Observable.from(apolloSub);
             if (observer) {
