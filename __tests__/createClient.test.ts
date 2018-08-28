@@ -40,7 +40,7 @@ test("should subscribe", (done) => {
       const testData = {
             Message: {
                   id: 99,
-                  MessageType: {
+                  type: {
                         type: "Email",
                   },
             },
@@ -51,6 +51,7 @@ test("should subscribe", (done) => {
             next({data, errors}) {
                   expect(errors == null || errors == undefined).toBe(true);
                   expect(data.Message.id).toBe(testData.Message.id);
+                  expect(data.Message.type.type).toBe(testData.Message.type.type);
                   done();
             },
             error(e) { expect(e).toBeNull(); done(); },
