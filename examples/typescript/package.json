@@ -1,6 +1,6 @@
 {
   "name": "@gsox/examples-typescript",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Alek Merani",
   "license": "MIT",
   "dependencies": {
-    "@gsox/client": "^0.2.2",
+    "@gsox/client": "^0.2.3",
     "@gsox/schema": "^0.2.2",
     "@gsox/server": "^0.2.2",
     "react": "^16.4.2",
