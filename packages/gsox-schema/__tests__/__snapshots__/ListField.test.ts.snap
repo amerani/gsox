@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create schema 1`] = `
+"
+            
+      type Query {
+            hello: String
+      }
+      type schema {
+            subscription: Subscription
+            query: Query
+      }
+      type Ping {
+            id: Int
+      }
+      type Subscription {
+            Ping: Ping
+      }
+ 
+
+            
+            extend type Subscription {
+OnCallAlert:OnCallAlert
+AlertType:AlertType
+Message:Message
+} 
+
+            type OnCallAlert {
+	messages: [Message]
+	type: AlertType
+	id: Int
+	previous: [OnCallAlert]
+},
+type AlertType {
+	name: String
+},
+type Message {
+	text: String
+},
+
+      
+      "
+`;
