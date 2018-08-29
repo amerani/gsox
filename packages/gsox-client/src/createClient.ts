@@ -44,10 +44,19 @@ function createClient(options: ClientOptions) {
             return observable;
       };
 
+      const subscribeWithQuery = (query, observer?) => {
+            const apolloSub: any = client.subscribe({ query });
+            const observable = Observable.from(apolloSub);
+            if (observer) {
+                  return observable.subscribe(observer);
+            }
+            return observable;
+      }
+
       return {
             rawClient: client,
             subscribe,
-            typeGraph: typeGraph.build(inject),
+            subscribeWithQuery
       };
 }
 
