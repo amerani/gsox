@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/$PROJECT_ID/npm'
+  args: ['install']
+- name: 'gcr.io/$PROJECT_ID/npm'
+  args: ['bootstrap']
+- name: 'gcr.io/$PROJECT_ID/npm'
+  args: ['build']
+- name: 'gcr.io/$PROJECT_ID/npm'
+  args: ['test']
