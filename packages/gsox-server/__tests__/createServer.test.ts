@@ -9,7 +9,8 @@ class Test {
 }
 
 test("should create server", () => {
-      expect(applyMiddleware(express(), { host: "localhost", port: 5000, inject: [Test] })).toMatchSnapshot();
+      const server = applyMiddleware(express(), { host: "localhost", port: 5000, inject: [Test] });
+      expect(Object.keys(server)).toMatchSnapshot();
 });
 
 test("should throw when not injected", () => {
