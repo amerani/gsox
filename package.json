@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "lerna run build",
-    "build:ex": "wp ./examples/**/*.config.js",
+    "build:ex": "wp --config ./examples/typescript/webpack.config.js",
     "nuke": "lerna run --parallel nuke",
     "clean": "lerna run --parallel clean",
     "rebuild": "yarn clean && concurrently \"yarn build\" \"yarn build:ex\" ",

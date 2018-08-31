@@ -1,4 +1,4 @@
-import { Type, Field, Type1, ListField } from '@gsox/schema';
+import { Type, Field, Type1, ListField } from '../packages/gsox-schema';
 
 @Type()
 class Alert {
@@ -47,4 +47,3 @@ class Complex {
 export {
       Notification, Alert, Stream, Complex
 }
-

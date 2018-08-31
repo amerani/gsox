@@ -5,8 +5,10 @@ import { createClient } from "../packages/gsox-client";
 import { Field, Type } from "../packages/gsox-schema";
 import { applyMiddleware } from "../packages/gsox-server";
 import { Ping } from "../packages/gsox-schema";
+import * as types from "./types";
+import gql from "graphql-tag";
 
-const port = 8000;
+const port = 5000;
 @Type()
 class MessageType {
       @Field()
@@ -21,7 +23,7 @@ class Message {
       public type: MessageType;
 }
 
-const inject = [Message, MessageType];
+const inject = [Message, MessageType, ...Object.values(types)];
 let server;
 let client;
 beforeAll(() => {
@@ -37,21 +39,51 @@ afterAll(() => {
 });
 
 test("should subscribe", (done) => {
-      const testData = {
-            Message: {
-                  id: 99,
-                  type: {
-                        type: "Email",
-                  },
-            },
-            typeName: "Message",
-      };
+    const testData = {
+        "Complex": {
+            "alert": {
+                "id":1,
+                "siblings": [
+                    {
+                        "id": 11,
+                        "alerts": [
+                            { "message": "alert 11 fired"},
+                            { "message": "alert 11 fired"}
+                        ]
+                    }
+                ],
+                "alerts": [
+                            { "message": "alert 1 fired"},
+                            { "message": "alert 1 fired"}
+                        ]
+            }
+        },
+        "typeName": "Complex"
+      }
+      const query = gql`
+      subscription {
+            Complex {
+              alert {
+                id
+                siblings {
+                  id
+                  alerts {
+                    message
+                  }
+                }
+                alerts {
+                  message
+                }
+              }
+            }
+          }      
+      `
       client
-      .subscribe(Message, {
+      .subscribeWithQuery(query, {
             next({data, errors}) {
                   expect(errors == null || errors == undefined).toBe(true);
-                  expect(data.Message.id).toBe(testData.Message.id);
-                  expect(data.Message.type.type).toBe(testData.Message.type.type);
+                  console.log("recieved data")
+                  console.log(JSON.stringify(data))
                   done();
             },
             error(e) { expect(e).toBeNull(); done(); },
@@ -70,3 +102,4 @@ test("should subscribe", (done) => {
             req.end();
       }, 1000);
 }, 20000);
+

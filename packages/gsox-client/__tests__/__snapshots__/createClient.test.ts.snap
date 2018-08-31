@@ -53,7 +53,7 @@ Object {
     "watchQuery": [Function],
   },
   "subscribe": [Function],
-  "typeGraph": Object {},
+  "subscribeWithQuery": [Function],
 }
 `;
 
@@ -110,6 +110,6 @@ Object {
     "watchQuery": [Function],
   },
   "subscribe": [Function],
-  "typeGraph": Object {},
+  "subscribeWithQuery": [Function],
 }
 `;
