@@ -6,7 +6,7 @@ import { Field, Type } from "../packages/gsox-schema";
 import { applyMiddleware } from "../packages/gsox-server";
 import { Ping } from "../packages/gsox-schema";
 
-const port = 5000;
+const port = 8000;
 @Type()
 class MessageType {
       @Field()
