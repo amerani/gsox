@@ -147,7 +147,7 @@ Object {
     "uploadsConfig": Object {},
   },
   "close": [Function],
-  "host": "localhsot",
+  "host": "localhost",
   "listen": [Function],
   "port": 5000,
   "routes": Object {
