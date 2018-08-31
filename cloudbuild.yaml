@@ -1,9 +1,9 @@
 steps:
-- name: 'gcr.io/$PROJECT_ID/npm'
+- name: 'gcr.io/cloud-builders/npm'
   args: ['install']
-- name: 'gcr.io/$PROJECT_ID/npm'
+- name: 'gcr.io/cloud-builders/npm'
   args: ['bootstrap']
-- name: 'gcr.io/$PROJECT_ID/npm'
+- name: 'gcr.io/cloud-builders/npm'
   args: ['build']
-- name: 'gcr.io/$PROJECT_ID/npm'
+- name: 'gcr.io/cloud-builders/npm'
   args: ['test']
