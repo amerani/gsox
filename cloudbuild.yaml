@@ -2,8 +2,8 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
 - name: 'gcr.io/cloud-builders/npm'
-  args: ['bootstrap']
+  args: ['run', 'bootstrap']
 - name: 'gcr.io/cloud-builders/npm'
-  args: ['build']
+  args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/npm'
-  args: ['test']
+  args: ['run', 'test']
