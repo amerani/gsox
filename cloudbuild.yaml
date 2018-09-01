@@ -7,3 +7,5 @@ steps:
   args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'test']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'canary']
