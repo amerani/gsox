@@ -1,10 +1,18 @@
 # gsox
 framework for streaming data to browser and mobile clients using grapqhl subscriptions, websockets, and webhook
 
-## installation
-`npx gsox`
+## Installation
+install all packages to existing project  
+`npx gsox`  
 
-## schema
+install packages individually
+```
+npm install @gsox/schema
+npm install @gsox/client
+npm install @gsox/server
+```
+
+## Schema
 describe your data types
 ```js
 import { Type, Field } from "@gsox/schema"
@@ -24,12 +32,12 @@ class MessageType { ... }
 
 const inject = [Notification, MessageType]
 ```
-[schema README](packages/gsox-schema/readme.md)
+[README](packages/gsox-schema/readme.md)
 
-## client
+## Client
 consume/subscribe to one or more types
 
-### react
+### React
 ```js
 import { createClient, StreamProvider, StreamConsumer } from "@gsox/client"
 
@@ -47,7 +55,7 @@ const client = createClient({ host, port })
 </StreamProvider>
 ```
 
-### observable
+### Observable
 ```js
 import { createClient } from "@gsox/client"
 
@@ -58,9 +66,9 @@ client.subscribe([Notification, MessageType], {
       error: error => console.log(error)
 })
 ```
-[client README](packages/gsox-client/readme.md)
+[README](packages/gsox-client/readme.md)
 
-## server
+## Server
 inject data types and apply express middleware
 ```js
 import { applyMiddleware } from "@gsox/server"
@@ -71,12 +79,13 @@ const server = applyMiddleware(app, { host, port, inject })
 
 server.listen(() => console.log(`gsox listening 🧦🧦🧦`))
 ```
-[server README](packages/gsox-server/readme.md)
+[README](packages/gsox-server/readme.md)
 
-## endpoints
-`http://host:port/webhook` - accepts shape of your schema
-
+## WebSocket Endpoint
 `ws://host:port/graphql` - publishes webhook body to client subscribers
+
+## Webhook Endpoint
+`http://host:port/webhook` - accepts shape of your schema
 
 ## options
 ```js
@@ -86,6 +95,7 @@ server.listen(() => console.log(`gsox listening 🧦🧦🧦`))
   routes: {
     graphql: "/graphql",
     webhook: "/webhook"
-  }
+  },
+  inject: [...types]
 }
 ```
