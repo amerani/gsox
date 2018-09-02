@@ -7,7 +7,3 @@ steps:
   args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/yarn'
   args: ['run', 'test']
-- name: gcr.io/cloud-builders/git
-  args: ['fetch', '--unshallow'] 
-- name: 'gcr.io/cloud-builders/yarn'
-  args: ['run', 'canary']
