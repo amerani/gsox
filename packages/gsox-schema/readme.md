@@ -50,7 +50,7 @@ const typeDef = `
 `
 ```
 
-## schema injection
+## Schema Injection
 inject shared client and server types or graphql type definitions
 ```js
 const inject: {new ()}[]      //constructor functions
