@@ -10,7 +10,7 @@ npm install @gsox/schema
 yarn add @gsox/schema
 ```
 
-## decorators
+## Decorators
 ```js
 import { Type, Field } from "@gsox/schema"
 
@@ -25,10 +25,12 @@ class Alert {
 
 @Type()
 class MessageType { ... }
-
 ```
 
-## builders
+[TypeScript Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)  
+[JavaScript Decorators](https://babeljs.io/docs/en/babel-plugin-syntax-decorators)
+
+## AST Builders (wip)
 ```js
 import { TypeNode, FieldNode } from "@gsox/schema"
 
@@ -38,7 +40,7 @@ const alertTypeNode = new TypeNode('Alert', [
 ])
 ```
 
-## graphql
+## GraphQL (wip)
 ```js
 const typeDef = `
       type Alert {

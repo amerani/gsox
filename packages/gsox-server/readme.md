@@ -1,7 +1,7 @@
 # gsox-server
 express webosocket and webhook middleware
 
-## installation
+## Installation
 ```sh
 #npm
 npm install @gsox/server
@@ -10,7 +10,7 @@ npm install @gsox/server
 yarn add @gsox/server
 ```
 
-## example
+## Usage
 ```js
 import { applyMiddleware } from "@gsox/server"
 
@@ -28,7 +28,7 @@ server = applyMiddleware(app, { host, port, inject })
 server.listen(() => console.log('listening...'))
 ```
 
-## server options
+## Options
 endpoint route config and shared schema
 
 ```js
@@ -44,7 +44,7 @@ import types from "./schema"
 }
 ```
 
-## schema injection
+## Schema Injection
 inject class, instance, or string graphql type definition
 ```js
 const inject: {new ()}[]      //constructor functions
@@ -62,9 +62,9 @@ const inject: {new ()}[]      //constructor functions
       ]
 ```
 
-## endpoints
+## Endpoints
 
-### webhook
+### Webhook
 `http://localhost:3000/webhook`
 
 publishes request body to client subscribers
@@ -80,7 +80,7 @@ POST
 }
 ```
 
-### websocket
+### Websocket
 `ws://localhost:3000/graphql`
 
 subscribe directly using graphql

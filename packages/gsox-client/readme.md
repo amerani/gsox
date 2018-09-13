@@ -1,7 +1,7 @@
 # gsox-client
 subscription client for consuming webhook data
 
-## installation
+## Installation
 ```sh
 #npm
 npm install @gsox/client
@@ -10,11 +10,11 @@ npm install @gsox/client
 yarn add @gsox/client
 ```
 
-## react
+## React
 ```js
 import { createClient, StreamProvider, StreamConsumer } from "@gsox/client"
 
-const client = createClient({ host, port })
+const client = createClient({ host, port, inject })
 
 <StreamProvider client={client}>
       <StreamConsumer types={[Notification]}>
@@ -28,25 +28,44 @@ const client = createClient({ host, port })
 </StreamProvider>
 ```
 
-## observable
+## Observable
 ```js
 import { createClient } from "@gsox/client"
 
-const client = createClient({ host, port })
+const client = createClient({ host, port, inject })
 
-client.subscribe([...types], {
+client.subscribe([Notification, Alert], {
       next: data => console.log(data),
       error: error => console.log(error)
 })
 ```
 
-## options
+## Subscribe with GraphQL DocumentNode
+```js
+import gql from "graphql-tag";
+
+const query = gql`
+  subscription {
+    Alert {
+      id
+      timestamp
+    }
+  }
+`
+client.subscribeWithQuery(query, {
+      next: data => console.log(data),
+      error: error => console.log(error)
+});
+```
+
+## Options
 ```js
 {
   host: "localhost",
   port: 3000,
   routes: {
     graphql: "/graphql"
-  }
+  },
+  inject: [...types]
 }
 ```

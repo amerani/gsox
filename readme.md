@@ -32,6 +32,8 @@ class MessageType { ... }
 
 const inject = [Notification, MessageType]
 ```
+*Supports both TypeScript and JavaScript decorators*
+
 [README](packages/gsox-schema/readme.md)
 
 ## Client
