@@ -21,7 +21,8 @@
     "serve": "yarn build:ex && ts-node ./examples/typescript/server.ts"
   },
   "bin": {
-    "gsox": "./install.js"
+    "gx": "./gx.js",
+    "g": "./g.js"
   },
   "author": "Alek Merani",
   "license": "MIT",
