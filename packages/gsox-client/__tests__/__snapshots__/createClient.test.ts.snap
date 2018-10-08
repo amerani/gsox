@@ -1,115 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should create client 1`] = `
-Object {
-  "rawClient": ApolloClient {
-    "cache": InMemoryCache {
-      "addTypename": true,
-      "config": Object {
-        "addTypename": true,
-        "dataIdFromObject": [Function],
-        "fragmentMatcher": HeuristicFragmentMatcher {},
-        "storeFactory": [Function],
-      },
-      "data": ObjectCache {
-        "data": Object {},
-      },
-      "optimistic": Array [],
-      "silenceBroadcast": false,
-      "typenameDocumentCache": WeakMap {},
-      "watches": Array [],
-    },
-    "defaultOptions": Object {},
-    "disableNetworkFetches": true,
-    "link": ApolloLink {
-      "request": [Function],
-    },
-    "mutate": [Function],
-    "query": [Function],
-    "queryDeduplication": true,
-    "reFetchObservableQueries": [Function],
-    "resetStore": [Function],
-    "resetStoreCallbacks": Array [],
-    "ssrMode": false,
-    "store": DataStore {
-      "cache": InMemoryCache {
-        "addTypename": true,
-        "config": Object {
-          "addTypename": true,
-          "dataIdFromObject": [Function],
-          "fragmentMatcher": HeuristicFragmentMatcher {},
-          "storeFactory": [Function],
-        },
-        "data": ObjectCache {
-          "data": Object {},
-        },
-        "optimistic": Array [],
-        "silenceBroadcast": false,
-        "typenameDocumentCache": WeakMap {},
-        "watches": Array [],
-      },
-    },
-    "version": "2.3.7",
-    "watchQuery": [Function],
-  },
-  "subscribe": [Function],
-  "subscribeWithQuery": [Function],
-}
+Array [
+  "rawClient",
+  "subscribe",
+  "subscribeWithQuery",
+]
 `;
 
 exports[`should create client with options 1`] = `
-Object {
-  "rawClient": ApolloClient {
-    "cache": InMemoryCache {
-      "addTypename": true,
-      "config": Object {
-        "addTypename": true,
-        "dataIdFromObject": [Function],
-        "fragmentMatcher": HeuristicFragmentMatcher {},
-        "storeFactory": [Function],
-      },
-      "data": ObjectCache {
-        "data": Object {},
-      },
-      "optimistic": Array [],
-      "silenceBroadcast": false,
-      "typenameDocumentCache": WeakMap {},
-      "watches": Array [],
-    },
-    "defaultOptions": Object {},
-    "disableNetworkFetches": true,
-    "link": ApolloLink {
-      "request": [Function],
-    },
-    "mutate": [Function],
-    "query": [Function],
-    "queryDeduplication": true,
-    "reFetchObservableQueries": [Function],
-    "resetStore": [Function],
-    "resetStoreCallbacks": Array [],
-    "ssrMode": false,
-    "store": DataStore {
-      "cache": InMemoryCache {
-        "addTypename": true,
-        "config": Object {
-          "addTypename": true,
-          "dataIdFromObject": [Function],
-          "fragmentMatcher": HeuristicFragmentMatcher {},
-          "storeFactory": [Function],
-        },
-        "data": ObjectCache {
-          "data": Object {},
-        },
-        "optimistic": Array [],
-        "silenceBroadcast": false,
-        "typenameDocumentCache": WeakMap {},
-        "watches": Array [],
-      },
-    },
-    "version": "2.3.7",
-    "watchQuery": [Function],
-  },
-  "subscribe": [Function],
-  "subscribeWithQuery": [Function],
-}
+Array [
+  "rawClient",
+  "subscribe",
+  "subscribeWithQuery",
+]
 `;

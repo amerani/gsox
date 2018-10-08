@@ -3,11 +3,7 @@ subscription client for consuming webhook data
 
 ## Installation
 ```sh
-#npm
-npm install @gsox/client
-
-#yarn
-yarn add @gsox/client
+npm i @gsox/client
 ```
 
 ## React

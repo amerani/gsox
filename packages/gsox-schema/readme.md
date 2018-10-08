@@ -3,11 +3,7 @@ decorators, types, and builders for describing data
 
 ## installation
 ```sh
-#npm
-npm install @gsox/schema
-
-#yarn
-yarn add @gsox/schema
+npm i @gsox/schema
 ```
 
 ## Decorators

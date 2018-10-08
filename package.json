@@ -8,21 +8,20 @@
     "build:ex": "wp --config ./examples/typescript/webpack.config.js",
     "nuke": "lerna run --parallel nuke",
     "clean": "lerna run --parallel clean",
-    "rebuild": "yarn clean && concurrently \"yarn build\" \"yarn build:ex\" ",
+    "rebuild": "npm run clean && concurrently \"npm run build\" \"npm run build:ex\" ",
     "bootstrap": "lerna bootstrap",
     "test": "jest",
-    "lint": "concurrently \"yarn lint:src\" \"yarn lint:test\" ",
+    "lint": "concurrently \"npm run lint:src\" \"npm run lint:test\" ",
     "lint:src": "tslint ./packages/**/src/**/*.ts --fix",
     "lint:test": "tslint ./packages/**/__tests__/**/*.test.ts --fix",
-    "publish": "yarn rebuild && lerna publish",
+    "publish": "npm run rebuild && lerna publish",
     "release": "lerna publish",
     "canary": "lerna publish --canary --yes",
     "link": "lerna link",
-    "serve": "yarn build:ex && ts-node ./examples/typescript/server.ts"
+    "serve": "npm run build:ex && ts-node ./examples/typescript/server.ts"
   },
   "bin": {
-    "gx": "./gx.js",
-    "g": "./g.js"
+    "gsox": "./install.js"
   },
   "author": "Alek Merani",
   "license": "MIT",

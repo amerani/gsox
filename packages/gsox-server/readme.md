@@ -3,11 +3,7 @@ express webosocket and webhook middleware
 
 ## Installation
 ```sh
-#npm
-npm install @gsox/server
-
-#yarn
-yarn add @gsox/server
+npm i @gsox/server
 ```
 
 ## Usage
