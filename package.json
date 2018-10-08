@@ -8,7 +8,7 @@
     "build:ex": "wp --config ./examples/typescript/webpack.config.js",
     "nuke": "lerna run --parallel nuke",
     "clean": "lerna run --parallel clean",
-    "rebuild": "npm run clean && concurrently \"npm run build\" \"npm run build:ex\" ",
+    "rebuild": "npm run clean && npm run build",
     "bootstrap": "lerna bootstrap",
     "test": "jest",
     "lint": "concurrently \"npm run lint:src\" \"npm run lint:test\" ",

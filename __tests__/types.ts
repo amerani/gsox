@@ -1,4 +1,4 @@
-import { Type, Field, Type1, ListField } from '@gsox/schema';
+import { Type, Field, ListField } from '@gsox/schema';
 
 @Type()
 class Alert {
