@@ -1,10 +1,9 @@
 import * as express from "express";
 import * as http from "http";
 import "reflect-metadata";
-import { createClient } from "../packages/gsox-client";
-import { Field, Type } from "../packages/gsox-schema";
-import { applyMiddleware } from "../packages/gsox-server";
-import { Ping } from "../packages/gsox-schema";
+import { createClient } from "@gsox/client";
+import { Field, Type, Ping } from "@gsox/schema";
+import { applyMiddleware } from "@gsox/server";
 import * as types from "./types";
 import gql from "graphql-tag";
 

@@ -1,8 +1,8 @@
 import * as express from "express";
 import "reflect-metadata";
-import { createClient } from "../packages/gsox-client";
-import { Ping } from "../packages/gsox-schema";
-import { applyMiddleware } from "../packages/gsox-server";
+import { createClient } from "@gsox/client";
+import { Ping } from "@gsox/schema";
+import { applyMiddleware } from "@gsox/server";
 import { Notification } from "./Notification";
 
 const port = 4000;

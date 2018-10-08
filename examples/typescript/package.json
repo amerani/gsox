@@ -9,9 +9,9 @@
   "author": "Alek Merani",
   "license": "MIT",
   "dependencies": {
-    "@gsox/client": "file:../../packages/gsox-client",
-    "@gsox/schema": "file:../../packages/gsox-schema",
-    "@gsox/server": "file:../../packages/gsox-server",
+    "@gsox/client": "latest",
+    "@gsox/schema": "latest",
+    "@gsox/server": "latest",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },

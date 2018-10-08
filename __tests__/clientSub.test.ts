@@ -1,8 +1,8 @@
 import * as express from "express";
 import * as http from "http";
 import "reflect-metadata";
-import { createClient } from "../packages/gsox-client";
-import { applyMiddleware } from "../packages/gsox-server";
+import { createClient } from "@gsox/client";
+import { applyMiddleware } from "@gsox/server";
 import { Alert } from "./Alert";
 
 const port = 6000;
