@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node ./server.ts",
-    "build:client": "wp --config ./webpack.config.js"
+    "start:docker": "docker run -p 8000:8000 alekmerani/gsox",
+    "build:client": "wp --config ./webpack.config.js",
+    "build:docker": "docker build -t alekmerani/gsox .",
+    "publish:docker": "docker push alekmerani/gsox"
   },
   "author": "Alek Merani",
   "license": "MIT",
