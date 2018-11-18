@@ -6,8 +6,8 @@ import { Field, Type, Ping } from "@gsox/schema";
 import { applyMiddleware } from "@gsox/server";
 import * as types from "./types";
 import gql from "graphql-tag";
+import * as getPort from "get-port";
 
-const port = 5000;
 @Type()
 class MessageType {
       @Field()
@@ -25,12 +25,15 @@ class Message {
 const inject = [Message, MessageType, ...Object.values(types)];
 let server;
 let client;
-beforeAll(() => {
+let port;
+beforeAll(async (done) => {
+      port = await getPort();
       const app = express();
       server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
       client = createClient({ port, host, routes, ws: null, inject: [Ping, ...inject] });
       server.listen(() => console.log("server listening..."));
+      done();
 });
 
 afterAll(() => {
@@ -81,8 +84,10 @@ test("should subscribe", (done) => {
       .subscribeWithQuery(query, {
             next({data, errors}) {
                   expect(errors == null || errors == undefined).toBe(true);
+                  expect(data.Complex.alert.siblings[0].alerts[0]["__typename"]).toBe("Alert");
+                  expect(data.Complex.alert.alerts[0]["__typename"]).toBe("Alert");
                   console.log("recieved data")
-                  console.log(JSON.stringify(data))
+                  console.log(JSON.stringify(data, null, 2))
                   done();
             },
             error(e) { expect(e).toBeNull(); done(); },

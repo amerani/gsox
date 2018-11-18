@@ -4,8 +4,8 @@ import "reflect-metadata";
 import { createClient } from "@gsox/client";
 import { Ping, Field, Type } from "@gsox/schema";
 import { applyMiddleware } from "@gsox/server";
+import * as getPort from "get-port";
 
-const port = 8000;
 @Type()
 class MessageType {
       @Field()
@@ -23,12 +23,15 @@ class Message {
 const inject = [Message, MessageType];
 let server;
 let client;
-beforeAll(() => {
+let port;
+beforeAll(async (done) => {
+      port = await getPort()
       const app = express();
       server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
       client = createClient({ port, host, routes, ws: null, inject: [Ping, ...inject] });
       server.listen(() => console.log("server listening..."));
+      done();
 });
 
 afterAll(() => {

@@ -4,17 +4,20 @@ import { createClient } from "@gsox/client";
 import { Ping } from "@gsox/schema";
 import { applyMiddleware } from "@gsox/server";
 import { Notification } from "./Notification";
+import * as getPort from "get-port";
 
-const port = 4000;
 const inject = [Notification];
 let server;
 let client;
-beforeAll(() => {
+let port;
+beforeAll(async (done) => {
+      port = await getPort();
       const app = express();
       server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
       client = createClient({ port, host, routes, ws: null, inject: [Ping, ...inject] });
       server.listen(() => console.log("server listening..."));
+      done();
 });
 
 afterAll(() => {

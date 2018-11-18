@@ -4,17 +4,20 @@ import "reflect-metadata";
 import { createClient } from "@gsox/client";
 import { applyMiddleware } from "@gsox/server";
 import { Alert } from "./Alert";
+import * as getPort from "get-port";
 
-const port = 6000;
 const inject = [Alert];
 let server;
 let client;
-beforeAll(() => {
+let port;
+beforeAll(async (done) => {
+      port = await getPort();
       const app = express();
       server = applyMiddleware(app, { port, inject });
       const { host, routes } = server;
       client = createClient({ port, host, routes, ws: null, inject });
       server.listen(() => console.log("server listening..."));
+      done();
 });
 
 afterAll(() => {
